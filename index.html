@@ -1,0 +1,2050 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0284c7">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="সাত দিনের কথা">
+<title>আমার বাংলা বই - পাঠ ৫ : সাত দিনের কথা</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.bundle.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Galada&family=Hind+Siliguri:wght@400;500;600;700&family=Mina:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script>
+tailwind.config = { theme: { extend: {
+  colors: { primary:'#0ea5e9', secondary:'#0284c7', accent:'#f59e0b', oceanDark:'#075985' },
+  fontFamily: { hind:['"Hind Siliguri"','sans-serif'], galada:['"Galada"','cursive'] }
+}}}
+</script>
+<style>
+body{font-family:'Hind Siliguri',sans-serif;background:linear-gradient(135deg,#bae6fd 0%,#e0f2fe 50%,#f0f9ff 100%);min-height:100vh;user-select:none;}
+.font-title{font-family:'Galada',cursive;}
+@keyframes float-g{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-8px) rotate(1.5deg)}}
+.animate-float{animation:float-g 3.5s infinite ease-in-out;}
+@keyframes train-move{0%,100%{transform:translateX(0)}50%{transform:translateX(8px)}}
+.animate-train{animation:train-move 2.2s infinite ease-in-out;}
+@keyframes bubble-r{0%{transform:translateY(0) scale(.6);opacity:0}50%{opacity:.8}100%{transform:translateY(-130px) scale(1.2);opacity:0}}
+.bubble{position:absolute;background:rgba(255,255,255,.65);border:1px solid rgba(255,255,255,.9);border-radius:50%;pointer-events:none;animation:bubble-r 4s infinite linear;}
+::-webkit-scrollbar{width:8px;height:8px}
+::-webkit-scrollbar-track{background:#e0f2fe}
+::-webkit-scrollbar-thumb{background:#0284c7;border-radius:10px}
+.line-card{transition:all .2s ease-in-out}
+.line-card:hover{transform:translateX(6px)}
+.active-reading{background:#fef08a!important;border-color:#eab308!important;box-shadow:0 4px 14px rgba(234,179,8,.35);transform:scale(1.02)}
+.tab-btn{transition:all .25s ease}
+.tab-btn.active{background:#0284c7;color:#fff;box-shadow:0 4px 12px rgba(2,132,199,.3)}
+@keyframes praise-b{0%,100%{transform:scale(1)}50%{transform:scale(1.15) rotate(2deg)}}
+.animate-praise{animation:praise-b .6s ease-in-out}
+.install-pulse{animation:install-pulse 2s infinite}
+@keyframes install-pulse{0%,100%{box-shadow:0 0 0 0 rgba(236,72,153,.7)}50%{box-shadow:0 0 0 10px rgba(236,72,153,0)}}
+.day-card{transition:all .25s cubic-bezier(.4,0,.2,1)}
+.day-card:hover{transform:translateY(-5px) scale(1.03)}
+.day-card.active-day{background:linear-gradient(135deg,#fef08a,#fcd34d)!important;border-color:#eab308!important;box-shadow:0 8px 24px rgba(234,179,8,.5);transform:scale(1.05)}
+.compound-box{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;background:#fff;border:2px solid #0284c7;border-radius:10px;padding:6px 12px;min-width:52px;box-shadow:0 2px 6px rgba(2,132,199,.15);}
+.compound-box .bn{font-size:22px;font-weight:900;color:#075985;line-height:1}
+.compound-box .lbl{font-size:9px;color:#64748b;font-weight:700;margin-top:2px}
+.word-card-item{cursor:pointer;transition:all .3s cubic-bezier(.4,0,.2,1);position:relative;overflow:hidden;}
+.word-card-item:active{transform:scale(.96)}
+.word-card-item .speaker-badge{position:absolute;top:8px;right:8px;background:rgba(255,255,255,.3);border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-size:14px;transition:all .2s}
+.word-card-item:hover .speaker-badge{background:rgba(255,255,255,.5);transform:scale(1.1)}
+@keyframes card-speak{0%,100%{transform:scale(1);box-shadow:0 8px 24px rgba(0,0,0,.2)}50%{transform:scale(1.05);box-shadow:0 16px 40px rgba(234,179,8,.6)}}
+.word-card-item.speaking{animation:card-speak 1s ease-in-out}
+@keyframes name-glow{0%,100%{box-shadow:0 0 0 0 rgba(251,191,36,.6)}50%{box-shadow:0 0 0 12px rgba(251,191,36,0)}}
+.name-glow{animation:name-glow 2s infinite}
+#printArea{display:none}
+@media print{
+  @page{size:A4 portrait;margin:1.2cm 1.3cm}
+  html,body{background:#fff!important;padding:0!important;margin:0!important}
+  *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+  #appContainer{display:none!important}
+  .no-print{display:none!important}
+  #printModal,#installModal{display:none!important}
+  #printArea{display:block!important}
+  .pr-page{font-family:'Hind Siliguri','Nirmala UI',sans-serif;color:#0f172a;font-size:11.5pt;line-height:1.65}
+  .pr-head{text-align:center;border-bottom:3px solid #0284c7;padding-bottom:7px;margin-bottom:12px}
+  .pr-kicker{font-size:9pt;font-weight:700;color:#0369a1;letter-spacing:.4px}
+  .pr-head h1{font-family:'Galada','Hind Siliguri',cursive;font-size:21pt;color:#075985;margin:3px 0 6px 0}
+  .pr-meta{display:flex;justify-content:space-between;gap:10px;font-size:10pt;font-weight:600;flex-wrap:wrap}
+  .pr-name{margin-top:7px;font-size:10pt;font-weight:600;text-align:left}
+  .pr-sec{margin-top:13px;page-break-inside:avoid}
+  .pr-sec>h2{font-size:12.5pt;color:#fff;background:#0284c7;padding:4px 9px;border-radius:5px;margin-bottom:7px;font-weight:700}
+  .pr-ol{margin:0;padding-left:20px}
+  .pr-ol li{margin-bottom:4px;font-weight:600}
+  .pr-table{width:100%;border-collapse:collapse;margin-top:4px;font-size:10.5pt}
+  .pr-table th{background:#e0f2fe;color:#075985;border:1px solid #7dd3fc;padding:5px 7px;text-align:left;font-weight:700}
+  .pr-table td{border:1px solid #bae6fd;padding:5px 7px;font-weight:600}
+  .pr-q{margin-bottom:9px;padding:6px 9px;border:1px dashed #94a3b8;border-radius:7px;page-break-inside:avoid}
+  .pr-opts{margin-left:20px;font-size:10pt;font-weight:600;color:#0369a1}
+  .pr-tf{margin-left:20px;font-size:10.5pt;font-weight:600}
+  .pr-box{display:inline-block;width:12px;height:12px;border:1.4px solid #0f172a;margin:0 3px 0 10px;vertical-align:-2px}
+  .pr-ans{color:#047857;font-weight:700}
+  .pr-foot{margin-top:16px;border-top:2px solid #cbd5e1;padding-top:6px;text-align:center;font-size:8.5pt;color:#64748b;font-weight:600}
+  .pr-pagebreak{page-break-before:always}
+  .pr-emoji-row{font-size:20pt;letter-spacing:10px;margin:3px 0 5px 0;text-align:center}
+  .pr-emoji-line{font-size:16pt;text-align:center;letter-spacing:6px;margin:2px 0}
+  .cards-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:10px}
+  .flash-card{border:2.5px dashed #0284c7;border-radius:12px;padding:14px 12px;text-align:center;background:#f0f9ff;page-break-inside:avoid;min-height:120px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+  .flash-card .fc-icon{font-size:28pt;line-height:1}
+  .flash-card .fc-main{font-size:24pt;font-weight:900;color:#075985;margin:4px 0 2px 0;font-family:'Galada','Hind Siliguri',cursive}
+  .flash-card .fc-sub{font-size:11pt;color:#0369a1;font-weight:700}
+  .flash-card .fc-cut{margin-top:6px;font-size:8pt;color:#94a3b8}
+  .compound-card{border:2.5px dashed #b45309;background:#fffbeb}
+  .compound-card .fc-main{color:#b45309}
+  .compound-card .fc-sub{color:#92400e}
+  .wc-print-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr 1fr;gap:6mm;height:250mm;margin-top:5mm;}
+  .wc-print-card{border:3px dashed #0284c7;border-radius:14px;background:linear-gradient(135deg,#f0f9ff,#dbeafe);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:6mm 4mm 14mm 4mm;page-break-inside:avoid;position:relative;overflow:hidden;}
+  .wc-print-card::before{content:'';position:absolute;top:-20mm;right:-20mm;width:50mm;height:50mm;background:radial-gradient(circle,rgba(2,132,199,.08),transparent 70%);border-radius:50%;}
+  .wc-print-card .wc-icon{font-size:56pt;line-height:1;margin-bottom:3mm}
+  .wc-print-card .wc-name{font-size:38pt;font-weight:900;color:#075985;font-family:'Galada','Hind Siliguri',cursive;line-height:1.1}
+  .wc-print-card .wc-en{font-size:14pt;color:#0369a1;font-weight:700;margin-top:2mm;letter-spacing:1px}
+  .wc-print-card .wc-cut{position:absolute;bottom:4mm;left:5mm;right:5mm;font-size:8pt;color:#94a3b8;text-align:center;letter-spacing:2px}
+}
+</style>
+</head>
+<body class="p-2 sm:p-4 md:p-6 text-gray-800">
+
+<div id="appContainer" class="max-w-6xl mx-auto bg-white/95 backdrop-blur-md rounded-3xl shadow-2xl overflow-hidden border-4 border-sky-200">
+
+<header class="bg-gradient-to-r from-sky-600 via-cyan-600 to-teal-600 p-4 sm:p-6 text-white text-center relative overflow-hidden shadow-md">
+  <div class="absolute -top-6 -left-6 w-28 h-28 bg-white/10 rounded-full blur-xl"></div>
+  <div class="absolute -bottom-6 -right-6 w-36 h-36 bg-amber-300/20 rounded-full blur-xl"></div>
+
+  <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-3 text-left">
+      <span class="text-4xl sm:text-6xl animate-float">🚂</span>
+      <div>
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-amber-300 text-sky-950 text-xs font-black px-3 py-0.5 rounded-full uppercase tracking-wider">পাঠ ৫</span>
+          <span class="text-xs text-sky-100 font-semibold">আমার বাংলা বই • ১ম শ্রেণি</span>
+          <span class="text-[10px] bg-white/20 px-2 py-0.5 rounded-full font-bold">পৃষ্ঠা ৮৫</span>
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-title text-amber-200 tracking-wide drop-shadow-md mt-0.5">সাত দিনের কথা</h1>
+        <div id="headerGreeting" class="mt-2 inline-flex items-center gap-2 bg-gradient-to-r from-amber-400 via-pink-500 to-rose-500 text-white text-xs sm:text-sm font-black px-4 py-1 rounded-full shadow-lg border border-white/40">
+          <span>✨</span>
+          <span>পরিকল্পনা ও ডিজাইনে: <strong class="text-yellow-200 text-sm sm:text-base font-extrabold drop-shadow">মো: সাইফুল্লাহ সরোয়ার</strong></span>
+          <span>👑</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap items-center justify-center gap-2 bg-white/20 backdrop-blur-md px-3 py-2 rounded-2xl border border-white/30">
+      <button id="soundToggleBtn" onclick="toggleAudio()" class="flex items-center gap-1.5 bg-white/20 hover:bg-white/30 px-3 py-1.5 rounded-xl text-white font-bold text-xs sm:text-sm transition">
+        <i id="soundIcon" class="fas fa-volume-up text-amber-200"></i>
+        <span id="soundText">শব্দ চালু</span>
+      </button>
+      <div class="h-5 w-px bg-white/30"></div>
+      <div class="flex items-center gap-1 text-xs text-white">
+        <i class="fas fa-gauge-high text-amber-200"></i>
+        <select id="speechRateSelect" onchange="changeSpeechRate(this.value)" class="bg-sky-900/60 text-white rounded-lg px-2 py-1 border border-white/30 focus:outline-none font-medium">
+          <option value="0.6">ধীরে</option>
+          <option value="0.8" selected>স্বাভাবিক</option>
+          <option value="1.0">দ্রুত</option>
+        </select>
+      </div>
+      <div class="h-5 w-px bg-white/30"></div>
+      <button onclick="openPrintModal()" class="flex items-center gap-1.5 bg-emerald-500 hover:bg-emerald-400 px-3 py-1.5 rounded-xl text-white font-bold text-xs sm:text-sm transition shadow-md">
+        <i class="fas fa-print"></i><span>প্রিন্ট</span>
+      </button>
+      <button id="pptBtn" onclick="downloadPPT()" class="flex items-center gap-1.5 bg-orange-600 hover:bg-orange-500 px-3 py-1.5 rounded-xl text-white font-bold text-xs sm:text-sm transition shadow-md">
+        <i class="fas fa-file-powerpoint"></i><span id="pptBtnText">PPT</span>
+      </button>
+      <button onclick="downloadHTML()" class="flex items-center gap-1.5 bg-purple-600 hover:bg-purple-500 px-3 py-1.5 rounded-xl text-white font-bold text-xs sm:text-sm transition shadow-md">
+        <i class="fas fa-download"></i><span>ডাউনলোড</span>
+      </button>
+      <button id="installBtn" onclick="handleInstallClick()" class="install-pulse flex items-center gap-1.5 bg-gradient-to-r from-pink-600 to-rose-600 hover:from-pink-500 hover:to-rose-500 px-3 py-1.5 rounded-xl text-white font-bold text-xs sm:text-sm transition shadow-md">
+        <i class="fas fa-circle-down"></i>
+        <span id="installBtnText">ইনস্টল</span>
+      </button>
+      <div class="h-5 w-px bg-white/30"></div>
+      <span class="text-[11px] bg-amber-300 text-sky-950 font-black px-2.5 py-1 rounded-full shadow">NCTB</span>
+    </div>
+  </div>
+
+  <nav class="mt-5 flex flex-wrap justify-center gap-2 border-t border-white/20 pt-3">
+    <button onclick="switchTab('reading')" id="tab-reading" class="tab-btn active px-3 py-2 rounded-2xl text-xs sm:text-sm font-bold flex items-center gap-1.5 bg-sky-100 text-sky-900">📖 পাঠ পড়া</button>
+    <button onclick="switchTab('wordcards')" id="tab-wordcards" class="tab-btn px-3 py-2 rounded-2xl text-xs sm:text-sm font-bold flex items-center gap-1.5 bg-violet-500 text-white hover:bg-violet-400 shadow-md">🎴 শব্দ কার্ড</button>
+    <button onclick="switchTab('traingame')" id="tab-traingame" class="tab-btn px-3 py-2 rounded-2xl text-xs sm:text-sm font-bold flex items-center gap-1.5 bg-amber-400 text-sky-950 font-black hover:bg-amber-300 shadow-md">🎮 ট্রেন গেম</button>
+    <button onclick="switchTab('train')" id="tab-train" class="tab-btn px-3 py-2 rounded-2xl text-xs sm:text-sm font-bold flex items-center gap-1.5 bg-sky-100/50 text-white hover:bg-sky-100/80 hover:text-sky-900">🚂 সাত দিনের ট্রেন</button>
+    <button onclick="switchTab('compound')" id="tab-compound" class="tab-btn px-3 py-2 rounded-2xl text-xs sm:text-sm font-bold flex items-center gap-1.5 bg-sky-100/50 text-white hover:bg-sky-100/80 hover:text-sky-900">🔤 যুক্তবর্ণ</button>
+    <button onclick="switchTab('exercises')" id="tab-exercises" class="tab-btn px-3 py-2 rounded-2xl text-xs sm:text-sm font-bold flex items-center gap-1.5 bg-sky-100/50 text-white hover:bg-sky-100/80 hover:text-sky-900">✍️ অনুশীলন</button>
+    <button onclick="switchTab('cards')" id="tab-cards" class="tab-btn px-3 py-2 rounded-2xl text-xs sm:text-sm font-bold flex items-center gap-1.5 bg-sky-100/50 text-white hover:bg-sky-100/80 hover:text-sky-900">🃏 অন্যান্য কার্ড</button>
+    <button onclick="switchTab('guide')" id="tab-guide" class="tab-btn px-3 py-2 rounded-2xl text-xs sm:text-sm font-bold flex items-center gap-1.5 bg-emerald-400 text-emerald-950 font-black hover:bg-emerald-300 shadow-md">👨‍🏫 গাইড</button>
+  </nav>
+</header>
+
+<main class="p-3 sm:p-6 md:p-8 space-y-8">
+
+<!-- ═══════════ READING ═══════════ -->
+<section id="section-reading" class="space-y-6">
+  <div class="bg-gradient-to-br from-sky-50 via-cyan-50 to-blue-100 rounded-3xl p-4 sm:p-6 border-4 border-sky-300 shadow-lg relative overflow-hidden">
+    <div class="bubble w-4 h-4 left-8 bottom-0" style="animation-delay:0s"></div>
+    <div class="bubble w-6 h-6 left-1/3 bottom-0" style="animation-delay:1.5s"></div>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+      <div class="lg:col-span-5 flex flex-col items-center">
+        <div class="w-full bg-gradient-to-b from-sky-200 to-cyan-100 rounded-3xl p-3 border-4 border-white shadow-xl">
+          <div class="text-center mb-2"><span class="text-4xl">🚂🚃🚃🚃</span></div>
+          <div id="miniTrainRow" class="flex justify-center gap-1 flex-wrap"></div>
+          <p class="text-center text-[11px] text-sky-900 font-bold mt-2">🚂 সাত দিন = এক সপ্তাহ</p>
+        </div>
+        <div class="mt-4 flex flex-wrap gap-2 w-full justify-center">
+          <button id="readAllBtn" onclick="readEntirePassage()" class="bg-gradient-to-r from-sky-600 to-cyan-600 hover:from-sky-700 hover:to-cyan-700 text-white font-bold px-5 py-2.5 rounded-2xl shadow-lg flex items-center gap-2 transform active:scale-95 transition text-sm">
+            <i id="playIcon" class="fas fa-volume-up text-lg"></i>
+            <span id="playBtnText">পুরো পাঠ শোনো 🔊</span>
+          </button>
+          <button onclick="stopAudio()" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold px-4 py-2.5 rounded-2xl shadow transition flex items-center gap-1 text-xs">
+            <i class="fas fa-stop"></i><span>থামো</span>
+          </button>
+        </div>
+      </div>
+      <div class="lg:col-span-7 space-y-2">
+        <div class="flex items-center justify-between mb-2 border-b border-sky-200 pb-2">
+          <h2 class="text-lg sm:text-xl font-bold text-sky-900 flex items-center gap-2"><span>📖</span> পড়া শুনো ও পড়ো:</h2>
+          <span class="text-xs bg-sky-200 text-sky-900 font-bold px-2.5 py-1 rounded-full" id="sentenceCount">১২টি বাক্য</span>
+        </div>
+        <div id="passageContainer" class="space-y-2 text-base sm:text-lg font-semibold text-slate-800"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-gradient-to-br from-amber-50 to-orange-50 rounded-3xl p-4 sm:p-6 border-4 border-amber-200 shadow-lg">
+    <div class="flex items-center justify-between mb-4">
+      <h3 class="text-lg sm:text-2xl font-bold text-amber-950 flex items-center gap-2 font-title"><span>🔍</span> মূল শব্দগুলো চিনে নিই</h3>
+      <span class="text-xs bg-amber-200 text-amber-900 font-bold px-3 py-1 rounded-full">শব্দে টাচ করো</span>
+    </div>
+    <div id="wordExplorerGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3"></div>
+  </div>
+</section>
+
+<!-- ═══════════ WORD CARDS ═══════════ -->
+<section id="section-wordcards" class="hidden space-y-6">
+  <div class="bg-gradient-to-r from-violet-600 via-purple-600 to-fuchsia-600 rounded-3xl p-5 sm:p-6 text-white shadow-xl border-4 border-purple-300 relative overflow-hidden">
+    <div class="absolute -top-6 -right-6 w-40 h-40 bg-amber-300/20 rounded-full blur-2xl"></div>
+    <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-5">
+      <div>
+        <span class="bg-white/25 text-xs font-black px-3 py-0.5 rounded-full">🎴 ইন্টারঅ্যাক্টিভ শব্দ কার্ড</span>
+        <h2 class="text-2xl sm:text-4xl font-title text-amber-200 mt-2">বারের নাম শিখি — কার্ডে টাচ করো! 🎧</h2>
+        <p class="text-xs sm:text-sm text-purple-100 mt-2 max-w-2xl">প্রতিটি রঙিন কার্ডে টাচ করলে বারটির নাম স্পষ্টভাবে উচ্চারিত হবে।</p>
+      </div>
+      <div class="text-6xl">🎴</div>
+    </div>
+  </div>
+
+  <div id="wordCardsGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4"></div>
+
+  <div class="bg-gradient-to-br from-purple-50 to-fuchsia-50 rounded-3xl p-5 sm:p-6 border-4 border-purple-200 shadow-md space-y-4">
+    <div class="flex items-center gap-2">
+      <div class="w-12 h-12 bg-purple-500 text-white rounded-2xl flex items-center justify-center text-2xl shadow">🖨️</div>
+      <div>
+        <h3 class="text-lg font-black text-purple-950">A4 পেজে ৬টি কার্ড প্রিন্ট</h3>
+        <p class="text-xs text-purple-800 font-medium">প্রতি পেজে ৬টি করে বড় কার্ড — কেটে ফ্ল্যাশ কার্ড বানান।</p>
+      </div>
+    </div>
+    <div class="flex flex-wrap items-center gap-3 bg-white/70 rounded-2xl p-3 border border-purple-200">
+      <label class="flex items-center gap-2 cursor-pointer">
+        <input type="checkbox" id="wc-include-en" checked class="w-4 h-4 accent-purple-600">
+        <span class="text-xs font-bold text-purple-900">ইংরেজি নাম দেখাও</span>
+      </label>
+      <label class="flex items-center gap-2 cursor-pointer">
+        <input type="checkbox" id="wc-include-guide" class="w-4 h-4 accent-purple-600">
+        <span class="text-xs font-bold text-purple-900">নিচে ব্যবহারের নির্দেশনা</span>
+      </label>
+    </div>
+    <button onclick="printWordCards()" class="w-full bg-gradient-to-r from-violet-600 via-purple-600 to-fuchsia-600 hover:from-violet-700 hover:via-purple-700 hover:to-fuchsia-700 text-white font-black py-3.5 rounded-2xl shadow-lg transition active:scale-95 flex items-center justify-center gap-2 text-base">
+      <i class="fas fa-print text-lg"></i> 🎴 A4 পেজে ৬টি কার্ড প্রিন্ট করো
+    </button>
+  </div>
+</section>
+
+<!-- ═══════════ TRAIN GAME ═══════════ -->
+<section id="section-traingame" class="hidden space-y-4">
+  <div class="bg-gradient-to-r from-amber-500 via-orange-500 to-rose-500 rounded-3xl p-4 sm:p-5 text-white shadow-xl border-4 border-amber-300">
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div>
+        <div class="flex items-center gap-2">
+          <span class="bg-white/25 text-xs font-black px-2.5 py-0.5 rounded-full">🎮 অ্যানিমেশন গেম</span>
+          <span class="text-xs text-amber-100">দিনের নাম মিলাও</span>
+        </div>
+        <h3 class="text-2xl sm:text-3xl font-title text-amber-100 mt-1">ট্রেনে বগি যোগ করো! 🚂</h3>
+        <p class="text-xs text-amber-100 mt-1">প্রশ্ন শুনে সঠিক দিনের বগিতে টাচ করো — ট্রেনের সাথে যোগ হবে!</p>
+      </div>
+      <div class="flex items-center gap-3">
+        <div class="bg-white/20 backdrop-blur px-4 py-2 rounded-2xl text-center border border-white/30">
+          <span class="text-[10px] uppercase tracking-wider block text-amber-100 font-bold">স্কোর</span>
+          <span id="tgScoreText" class="text-2xl font-black text-amber-100">০</span>
+        </div>
+        <button onclick="restartTrainGame()" class="bg-white/25 hover:bg-white/35 text-white font-black px-4 py-3 rounded-2xl shadow-lg transition active:scale-95 text-sm flex items-center gap-1.5 border border-white/30">
+          <i class="fas fa-rotate-right"></i><span>নতুন গেম</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- NAME + VOICE OPTIONS -->
+    <div class="mt-4 bg-amber-900/60 backdrop-blur rounded-2xl p-3 sm:p-4 border border-amber-300/50 space-y-3">
+      <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3">
+        <label class="text-xs text-amber-200 font-bold flex items-center gap-2 shrink-0">
+          <i class="fas fa-user-graduate"></i> শিশুর নাম:
+        </label>
+        <input type="text" id="childNameInput" placeholder="এখানে শিশুর নাম লিখো..." maxlength="20"
+               class="flex-1 bg-white/95 text-amber-950 font-bold px-3 py-2 rounded-xl border-2 border-amber-300 focus:border-amber-500 focus:outline-none text-sm placeholder:text-amber-400"
+               oninput="saveChildName(this.value)">
+        <button onclick="clearChildName()" class="bg-white/20 hover:bg-white/30 text-amber-100 text-xs font-bold px-3 py-2 rounded-xl transition shrink-0">
+          <i class="fas fa-eraser"></i> মুছো
+        </button>
+      </div>
+
+      <label class="flex items-center gap-2 cursor-pointer bg-white/10 hover:bg-white/20 rounded-xl p-2.5 transition">
+        <input type="checkbox" id="questionVoiceToggle" checked onchange="toggleQuestionVoice(this.checked)" class="w-5 h-5 accent-amber-400">
+        <span class="text-sm font-bold text-amber-100">🔊 প্রশ্ন ভয়েস শুনতে চাই <span class="text-[10px] text-amber-300 font-medium">(প্রতিটি প্রশ্ন স্বয়ংক্রিয়ভাবে পড়ে শোনাবে)</span></span>
+      </label>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-2 bg-amber-800/50 rounded-xl p-2.5 border border-amber-300/30">
+        <div class="text-center sm:text-left flex-1">
+          <span class="text-xs text-amber-300 font-bold block">🎯 প্রশ্ন:</span>
+          <span id="tgQuestion" class="text-base sm:text-xl font-black text-white">গেম শুরু করো!</span>
+        </div>
+        <button onclick="repeatQuestion()" class="bg-amber-300/30 hover:bg-amber-300/50 text-amber-100 text-xs font-bold px-3 py-2 rounded-xl transition border border-amber-200/40 shrink-0">
+          <i class="fas fa-volume-up"></i> প্রশ্ন আবার শোনো
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="relative w-full overflow-hidden rounded-3xl shadow-2xl border-4 border-amber-300">
+    <canvas id="trainGameCanvas" class="w-full h-[400px] sm:h-[480px] block"></canvas>
+    <div id="tgOverlay" class="absolute inset-0 bg-amber-950/75 backdrop-blur-sm hidden flex-col items-center justify-center text-white text-center p-6 space-y-4 z-20">
+      <div class="text-6xl animate-bounce">🎉</div>
+      <h3 class="text-3xl font-title text-amber-300">অসাধারণ! ট্রেন সম্পূর্ণ!</h3>
+      <p id="tgOverlayMsg" class="text-lg text-amber-100 font-medium max-w-md">তুমি সাতটি বগি সঠিকভাবে ট্রেনে যোগ করেছ!</p>
+      <button onclick="restartTrainGame()" class="bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-amber-950 font-black px-8 py-3 rounded-2xl text-lg shadow-xl transform active:scale-95 transition">
+        আবার খেলো 🚂
+      </button>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+    <div class="bg-sky-50 rounded-2xl p-3 border-2 border-sky-200 text-center">
+      <div class="text-2xl">🚂</div>
+      <p class="text-[11px] font-black text-sky-900 mt-1">ইঞ্জিন আগে</p>
+    </div>
+    <div class="bg-amber-50 rounded-2xl p-3 border-2 border-amber-200 text-center">
+      <div class="text-2xl">🚃</div>
+      <p class="text-[11px] font-black text-amber-900 mt-1">বগি সাজাও</p>
+    </div>
+    <div class="bg-emerald-50 rounded-2xl p-3 border-2 border-emerald-200 text-center">
+      <div class="text-2xl">🎯</div>
+      <p class="text-[11px] font-black text-emerald-900 mt-1">সঠিক ধরো</p>
+    </div>
+    <div class="bg-rose-50 rounded-2xl p-3 border-2 border-rose-200 text-center">
+      <div class="text-2xl">⭐</div>
+      <p class="text-[11px] font-black text-rose-900 mt-1">পয়েন্ট জমাও</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ TRAIN VIEWER ═══════════ -->
+<section id="section-train" class="hidden space-y-6">
+  <div class="bg-gradient-to-br from-sky-700 via-blue-700 to-indigo-800 rounded-3xl p-4 sm:p-6 text-white shadow-xl border-4 border-sky-400">
+    <div class="flex items-center gap-2">
+      <span class="bg-amber-400 text-amber-950 text-xs font-black px-2.5 py-0.5 rounded-full">ইন্টারঅ্যাক্টিভ</span>
+      <span class="text-xs text-sky-200">দিনের নাম শিখি</span>
+    </div>
+    <h3 class="text-2xl sm:text-3xl font-title text-amber-300 mt-1">🚂 সাত দিনের ট্রেন 🚃</h3>
+    <p class="text-sm text-sky-100 mt-2">প্রতিটি বগিতে টাচ করো — দিনের নাম ও উচ্চারণ শোন!</p>
+  </div>
+
+  <div class="bg-gradient-to-b from-sky-100 via-cyan-50 to-amber-50 rounded-3xl p-4 sm:p-6 border-4 border-sky-300 shadow-lg overflow-hidden">
+    <div class="overflow-x-auto pb-2">
+      <div class="inline-flex items-center gap-1.5 min-w-full justify-center py-3">
+        <div class="shrink-0 animate-train">
+          <svg viewBox="0 0 100 100" class="w-20 h-20 drop-shadow-lg">
+            <rect x="12" y="42" width="70" height="38" rx="6" fill="#0f766e" stroke="#0f172a" stroke-width="2"/>
+            <rect x="22" y="22" width="50" height="26" rx="4" fill="#14b8a6" stroke="#0f172a" stroke-width="2"/>
+            <rect x="30" y="28" width="14" height="14" fill="#bae6fd" stroke="#0f172a" stroke-width="1.5"/>
+            <rect x="50" y="28" width="14" height="14" fill="#bae6fd" stroke="#0f172a" stroke-width="1.5"/>
+            <circle cx="34" cy="86" r="8" fill="#1e293b" stroke="#0f172a" stroke-width="1.5"/>
+            <circle cx="34" cy="86" r="3" fill="#94a3b8"/>
+            <circle cx="72" cy="86" r="8" fill="#1e293b" stroke="#0f172a" stroke-width="1.5"/>
+            <circle cx="72" cy="86" r="3" fill="#94a3b8"/>
+            <rect x="12" y="30" width="10" height="12" fill="#dc2626" stroke="#0f172a" stroke-width="1.5" rx="2"/>
+          </svg>
+        </div>
+        <div id="trainCoaches" class="flex items-center gap-1.5"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="dayDetail" class="hidden bg-white rounded-3xl p-6 border-4 border-amber-300 shadow-xl text-center space-y-3">
+    <div id="dayDetailIcon" class="text-6xl">☀️</div>
+    <h3 id="dayDetailName" class="text-4xl sm:text-5xl font-title text-amber-600">রবিবার</h3>
+    <p id="dayDetailDesc" class="text-base sm:text-lg text-slate-700 font-semibold max-w-2xl mx-auto"></p>
+    <div class="flex justify-center gap-3 mt-2 flex-wrap">
+      <button id="dayPlayBtn" onclick="speakSelectedDay()" class="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold px-5 py-2 rounded-2xl shadow-lg transition active:scale-95 flex items-center gap-2">
+        <i class="fas fa-volume-up"></i> আবার শোনো
+      </button>
+      <button onclick="stopAudio()" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold px-4 py-2 rounded-2xl transition text-sm flex items-center gap-1">
+        <i class="fas fa-stop"></i> থামো
+      </button>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div class="bg-sky-50 rounded-3xl p-5 border-2 border-sky-200 shadow-md text-center space-y-2">
+      <div class="text-4xl">📅</div>
+      <h4 class="font-black text-sky-950">সপ্তাহ = ৭ দিন</h4>
+      <p class="text-xs text-sky-900 font-medium">রবিবার থেকে শনিবার পর্যন্ত সাত দিন মিলেই এক সপ্তাহ।</p>
+    </div>
+    <div class="bg-amber-50 rounded-3xl p-5 border-2 border-amber-200 shadow-md text-center space-y-2">
+      <div class="text-4xl">🎉</div>
+      <h4 class="font-black text-amber-950">ছুটির দিন</h4>
+      <p class="text-xs text-amber-900 font-medium">শুক্রবার ও শনিবার — এই দুই দিন আমরা ছুটি পাই!</p>
+    </div>
+    <div class="bg-emerald-50 rounded-3xl p-5 border-2 border-emerald-200 shadow-md text-center space-y-2">
+      <div class="text-4xl">📚</div>
+      <h4 class="font-black text-emerald-950">প্রতিদিন কাজ</h4>
+      <p class="text-xs text-emerald-900 font-medium">কখনো পড়ি, কখনো খেলি — প্রতিদিন নতুন কিছু শিখি।</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ COMPOUND ═══════════ -->
+<section id="section-compound" class="hidden space-y-6">
+  <div class="bg-gradient-to-br from-indigo-600 via-purple-600 to-violet-700 rounded-3xl p-4 sm:p-6 text-white shadow-xl border-4 border-indigo-300">
+    <div class="flex items-center gap-2">
+      <span class="bg-amber-400 text-amber-950 text-xs font-black px-2.5 py-0.5 rounded-full">ইন্টারঅ্যাক্টিভ</span>
+      <span class="text-xs text-indigo-100">যুক্তবর্ণ শিক্ষা</span>
+    </div>
+    <h3 class="text-2xl sm:text-3xl font-title text-amber-300 mt-1">🔤 যুক্তবর্ণ শিখি</h3>
+    <p class="text-sm text-indigo-100 mt-2">দুটি বর্ণ মিলে যুক্তবর্ণ তৈরি হয় — বর্ণে টাচ করে শুনে শিখি!</p>
+  </div>
+  <div id="compoundGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+  <div class="bg-amber-50 rounded-3xl p-5 border-4 border-amber-200 shadow-md">
+    <h4 class="text-lg font-black text-amber-950 mb-3 flex items-center gap-2"><span>💡</span> যুক্তবর্ণ কীভাবে পড়ব?</h4>
+    <ul class="space-y-2 text-sm text-amber-900 font-medium list-disc list-inside">
+      <li>দুটি বর্ণের মাঝখানে <strong>হসন্ত (্)</strong> থাকলে সেগুলো একসাথে উচ্চারিত হয় — একে যুক্তবর্ণ বলে।</li>
+      <li>যেমন: <strong>প + ্ + ত = প্ত</strong> — তাই <strong>সপ্তাহ</strong> লেখা হয়।</li>
+      <li>শব্দটি ধীরে ধীরে উচ্চারণ করো: <em>শব্দ ভেঙে → আবার জোড়া লাগিয়ে</em>।</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ═══════════ EXERCISES ═══════════ -->
+<section id="section-exercises" class="hidden space-y-8">
+  <div class="bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 p-4 rounded-3xl shadow-lg border-2 border-amber-500 flex flex-wrap items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <span class="text-3xl">🏆</span>
+      <div>
+        <h3 class="text-lg font-black text-amber-950">তোমার অনুশীলনী স্কোর</h3>
+        <p class="text-xs text-amber-900 font-semibold">সঠিক উত্তর দিয়ে সবগুলো তারকা অর্জন করো!</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-4 bg-white/90 backdrop-blur px-5 py-2 rounded-2xl shadow-inner">
+      <div class="text-center">
+        <span class="text-xs text-gray-500 font-bold block">মোট পয়েন্ট</span>
+        <span id="exerciseScore" class="text-2xl font-black text-amber-600">০</span>
+      </div>
+      <div id="starBadge" class="text-2xl">⭐ ⭐ ⭐</div>
+      <button onclick="resetExercises()" class="bg-rose-500 hover:bg-rose-600 text-white text-xs font-black px-3 py-1.5 rounded-xl transition shadow">
+        <i class="fas fa-rotate-left"></i> আবার শুরু
+      </button>
+    </div>
+  </div>
+
+  <div class="bg-white rounded-3xl p-4 sm:p-6 border-4 border-sky-200 shadow-md space-y-4">
+    <div class="flex items-center justify-between border-b border-sky-100 pb-3">
+      <h3 class="text-lg sm:text-xl font-bold text-sky-950 flex items-center gap-2"><span>✍️</span> অনুশীলন ১: সঠিক শব্দ বেছে শূন্যস্থান পূরণ করো</h3>
+      <span class="bg-sky-100 text-sky-800 text-xs font-bold px-2.5 py-1 rounded-full">পাঠ্যবই ভিত্তিক</span>
+    </div>
+    <div id="fillBlanksContainer" class="space-y-4"></div>
+  </div>
+
+  <div class="bg-white rounded-3xl p-4 sm:p-6 border-4 border-emerald-200 shadow-md space-y-4">
+    <div class="flex items-center justify-between border-b border-emerald-100 pb-3">
+      <h3 class="text-lg sm:text-xl font-bold text-emerald-950 flex items-center gap-2"><span>✅</span> অনুশীলন ২: সত্য নাকি মিথ্যা?</h3>
+      <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-2.5 py-1 rounded-full">যাচাই করি</span>
+    </div>
+    <div id="trueFalseContainer" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+  </div>
+
+  <div class="bg-white rounded-3xl p-4 sm:p-6 border-4 border-indigo-200 shadow-md space-y-4">
+    <div class="flex items-center justify-between border-b border-indigo-100 pb-3">
+      <h3 class="text-lg sm:text-xl font-bold text-indigo-950 flex items-center gap-2"><span>🔤</span> অনুশীলন ৩: সঠিক যুক্তবর্ণ বেছে নাও</h3>
+      <span class="bg-indigo-100 text-indigo-800 text-xs font-bold px-2.5 py-1 rounded-full">যুক্তবর্ণ</span>
+    </div>
+    <div id="compoundMatchContainer" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+  </div>
+
+  <div class="bg-white rounded-3xl p-4 sm:p-6 border-4 border-amber-200 shadow-md space-y-4">
+    <div class="flex items-center justify-between border-b border-amber-100 pb-3">
+      <h3 class="text-lg sm:text-xl font-bold text-amber-950 flex items-center gap-2"><span>🚂</span> অনুশীলন ৪: দিনগুলোকে সঠিক ক্রমে সাজাও!</h3>
+      <span class="bg-amber-100 text-amber-800 text-xs font-bold px-2.5 py-1 rounded-full">ট্রেন গঠন</span>
+    </div>
+    <div id="orderDaysContainer" class="space-y-3"></div>
+  </div>
+</section>
+
+<!-- ═══════════ OTHER CARDS ═══════════ -->
+<section id="section-cards" class="hidden space-y-6">
+  <div class="bg-gradient-to-r from-amber-500 via-orange-500 to-rose-500 rounded-3xl p-5 text-white shadow-xl border-4 border-amber-300">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <div>
+        <span class="bg-white/25 text-xs font-black px-3 py-0.5 rounded-full">🃏 ফ্ল্যাশ কার্ড (যুক্তবর্ণ)</span>
+        <h2 class="text-2xl sm:text-4xl font-title text-amber-100 mt-2">যুক্তবর্ণ কার্ড 🖨️</h2>
+        <p class="text-xs sm:text-sm text-amber-50 mt-2 max-w-xl">শুধুমাত্র যুক্তবর্ণ কার্ড প্রিন্ট করতে এখান থেকে যাও।</p>
+      </div>
+      <div class="text-6xl">🎴</div>
+    </div>
+  </div>
+  <div class="bg-white rounded-3xl p-5 border-4 border-amber-200 shadow-md">
+    <h3 class="text-lg font-black text-amber-950 mb-3">🖨️ যুক্তবর্ণ কার্ড প্রিন্ট (২টি / A4 পেজ)</h3>
+    <button onclick="printCompoundCardsOnly()" class="w-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-black py-3 rounded-2xl shadow-lg transition active:scale-95 flex items-center justify-center gap-2">
+      <i class="fas fa-print"></i> 🔤 যুক্তবর্ণ কার্ড প্রিন্ট
+    </button>
+  </div>
+</section>
+
+<!-- ═══════════ GUIDE ═══════════ -->
+<section id="section-guide" class="hidden space-y-6">
+  <div class="bg-gradient-to-r from-teal-500 via-emerald-600 to-green-600 rounded-3xl p-6 text-white shadow-xl border-4 border-emerald-300">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="space-y-2 text-center md:text-left">
+        <div class="inline-flex items-center gap-2 bg-emerald-800/60 px-3 py-1 rounded-full text-xs font-bold text-emerald-100">
+          <i class="fas fa-chalkboard-user text-amber-300"></i>
+          <span>শিক্ষক ও অভিভাবকের জন্য</span>
+        </div>
+        <h2 class="text-2xl sm:text-4xl font-title text-amber-200">🎓 পাঠদানের নির্দেশনা</h2>
+        <p class="text-xs sm:text-sm text-emerald-100 leading-relaxed max-w-2xl">শিশুদের জন্য সময়, দিনের নাম ও যুক্তবর্ণ চেনার মজার পরিকল্পনা।</p>
+      </div>
+      <div class="bg-white/20 backdrop-blur p-4 rounded-3xl border border-white/30 text-center shrink-0">
+        <span class="text-5xl">📅</span>
+        <span class="block text-xs font-black text-amber-200 mt-2">সপ্তাহ = ৭ দিন</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-white rounded-3xl p-6 border-4 border-emerald-200 shadow-lg space-y-5">
+    <h3 class="text-xl sm:text-2xl font-bold text-emerald-950 flex items-center gap-2 font-title border-b border-emerald-100 pb-3">
+      <span>⏱️</span> ৪০ মিনিটের ক্লাস পরিকল্পনা
+    </h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+      <div class="bg-sky-50 p-4 rounded-2xl border border-sky-200 space-y-2">
+        <h5 class="font-black text-sky-900">🎤 ধাপ ১ (৮ মিনিট) — পাঠ পরিচিতি</h5>
+        <ul class="list-disc list-inside space-y-1 text-slate-700">
+          <li>শিশুদের জিজ্ঞেস করুন — আজ কী বার?</li>
+          <li>ট্রেনের ছবি দেখিয়ে বলুন: প্রতিটি বগি = একটি দিন।</li>
+        </ul>
+      </div>
+      <div class="bg-violet-50 p-4 rounded-2xl border border-violet-200 space-y-2">
+        <h5 class="font-black text-violet-900">🎴 ধাপ ২ (১০ মিনিট) — শব্দ কার্ড</h5>
+        <ul class="list-disc list-inside space-y-1 text-slate-700">
+          <li>"শব্দ কার্ড" ট্যাবে প্রতিটি কার্ডে টাচ করিয়ে বারের নাম শোনান।</li>
+          <li>কার্ড প্রিন্ট করে হাতে দিয়ে খেলার মতো শেখান।</li>
+        </ul>
+      </div>
+      <div class="bg-amber-50 p-4 rounded-2xl border border-amber-200 space-y-2">
+        <h5 class="font-black text-amber-900">🎮 ধাপ ৩ (১০ মিনিট) — ট্রেন গেম</h5>
+        <ul class="list-disc list-inside space-y-1 text-slate-700">
+          <li>শিশুর নাম লিখে দিন — প্রশ্নে নাম ধরে ডাকবে।</li>
+          <li>প্রশ্ন ভয়েস চালু রেখে শুনে সঠিক বগি ধরতে বলুন।</li>
+        </ul>
+      </div>
+      <div class="bg-emerald-50 p-4 rounded-2xl border border-emerald-200 space-y-2">
+        <h5 class="font-black text-emerald-900">✍️ ধাপ ৪ (৭ মিনিট) — অনুশীলনী</h5>
+        <ul class="list-disc list-inside space-y-1 text-slate-700">
+          <li>ডিজিটাল অনুশীলনী ১-৪ করান।</li>
+          <li>সঠিক উত্তরে "বাহবা" বলুন।</li>
+        </ul>
+      </div>
+      <div class="bg-rose-50 p-4 rounded-2xl border border-rose-200 space-y-2 md:col-span-2">
+        <h5 class="font-black text-rose-900">🏠 ধাপ ৫ (৫ মিনিট) — বাড়ির কাজ</h5>
+        <ul class="list-disc list-inside space-y-1 text-slate-700">
+          <li>🎴 শব্দ কার্ড প্রিন্ট করে বাড়িতে নিয়ে যাবে।</li>
+          <li>📝 খাতায় সাত দিনের নাম ক্রমানুসারে লিখবে।</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-emerald-50 rounded-3xl p-6 border-4 border-emerald-200 shadow-md space-y-3">
+    <h3 class="text-xl font-bold text-emerald-950 flex items-center gap-2 font-title"><span>👀</span> শিশুর চোখের সুরক্ষা — ২০-২০-২০ নিয়ম</h3>
+    <ul class="space-y-2 text-sm text-emerald-900 font-medium list-disc list-inside">
+      <li>প্রতি <strong>২০ মিনিট</strong> পরপর স্ক্রিন থেকে চোখ সরিয়ে <strong>২০ ফুট</strong> দূরের বস্তুর দিকে <strong>২০ সেকেন্ড</strong> তাকিয়ে থাকবে।</li>
+      <li>ডিভাইস চোখ থেকে <strong>১.৫ – ২ ফুট</strong> দূরত্বে রাখবে।</li>
+      <li>অন্ধকার ঘরে বা শুধু স্ক্রিনের আলোতে পড়া যাবে না।</li>
+      <li>একনাগাড়ে <strong>২০-২৫ মিনিটের বেশি</strong> ডিজিটাল পড়াশোনা নয়।</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer class="bg-slate-100 p-5 text-center text-gray-600 text-xs sm:text-sm border-t border-gray-200 space-y-2">
+  <p class="font-bold text-sky-800">জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড (NCTB) • আমার বাংলা বই • প্রথম শ্রেণি • পাঠ ৫ : সাত দিনের কথা</p>
+  <div class="inline-block bg-gradient-to-r from-sky-500 via-amber-500 to-rose-500 p-0.5 rounded-2xl shadow-md my-1">
+    <div class="bg-white px-5 py-2 rounded-[14px] flex items-center justify-center gap-2 text-sky-950 font-bold text-xs sm:text-sm flex-wrap">
+      <span class="text-amber-500 text-base">🎨</span>
+      <span>সার্বিক পরিকল্পনা ও সুদৃশ্য ডিজাইন:</span>
+      <span class="bg-gradient-to-r from-amber-600 via-rose-600 to-purple-600 bg-clip-text text-transparent font-black text-sm sm:text-lg drop-shadow-sm">মো: সাইফুল্লাহ সরোয়ার</span>
+      <span class="text-amber-500 text-base">⭐</span>
+    </div>
+  </div>
+  <p class="text-gray-400 text-[11px] sm:text-xs">শিশুদের জন্য সহজ ও মজাদার ইন্টারঅ্যাক্টিভ বাংলা ডিজিটাল শিক্ষামূলক অ্যাপ • ২০২৬</p>
+</footer>
+
+</div>
+
+<!-- PRINT MODAL -->
+<div id="printModal" class="no-print fixed inset-0 bg-slate-900/70 backdrop-blur-sm z-[60] hidden items-center justify-center p-3 sm:p-4">
+  <div class="bg-white rounded-3xl max-w-xl w-full shadow-2xl overflow-hidden border-4 border-emerald-200 max-h-[92vh] flex flex-col">
+    <div class="bg-gradient-to-r from-emerald-600 to-teal-600 p-4 text-white flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <i class="fas fa-print text-2xl text-amber-200"></i>
+        <div>
+          <h3 class="text-lg sm:text-xl font-black">প্রিন্ট উপকরণ তৈরি করো</h3>
+          <p class="text-[11px] text-emerald-100">কার্যপত্র, উত্তরপত্র ও কার্ডের জন্য</p>
+        </div>
+      </div>
+      <button onclick="closePrintModal()" class="bg-white/20 hover:bg-white/30 w-9 h-9 rounded-full flex items-center justify-center transition"><i class="fas fa-xmark text-lg"></i></button>
+    </div>
+    <div class="p-4 sm:p-5 overflow-y-auto space-y-4">
+      <p class="text-xs text-slate-600 font-semibold bg-sky-50 border border-sky-200 rounded-xl p-3">💡 যেসব অংশ প্রিন্টে চাও, সেগুলোতে টিক দাও।</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+        <label class="flex items-center gap-2.5 bg-slate-50 hover:bg-sky-50 border-2 border-slate-200 hover:border-sky-300 rounded-xl p-3 cursor-pointer transition"><input type="checkbox" id="pr-story" checked class="w-4 h-4 accent-sky-600"><span class="text-sm font-bold text-slate-800">📖 পাঠ (বাক্য)</span></label>
+        <label class="flex items-center gap-2.5 bg-slate-50 hover:bg-sky-50 border-2 border-slate-200 hover:border-sky-300 rounded-xl p-3 cursor-pointer transition"><input type="checkbox" id="pr-days" checked class="w-4 h-4 accent-sky-600"><span class="text-sm font-bold text-slate-800">📅 সাত দিনের নাম</span></label>
+        <label class="flex items-center gap-2.5 bg-slate-50 hover:bg-amber-50 border-2 border-slate-200 hover:border-amber-300 rounded-xl p-3 cursor-pointer transition"><input type="checkbox" id="pr-words" checked class="w-4 h-4 accent-amber-600"><span class="text-sm font-bold text-slate-800">🔍 মূল শব্দভাণ্ডার</span></label>
+        <label class="flex items-center gap-2.5 bg-slate-50 hover:bg-indigo-50 border-2 border-slate-200 hover:border-indigo-300 rounded-xl p-3 cursor-pointer transition"><input type="checkbox" id="pr-compound" checked class="w-4 h-4 accent-indigo-600"><span class="text-sm font-bold text-slate-800">🔤 যুক্তবর্ণ</span></label>
+        <label class="flex items-center gap-2.5 bg-slate-50 hover:bg-indigo-50 border-2 border-slate-200 hover:border-indigo-300 rounded-xl p-3 cursor-pointer transition"><input type="checkbox" id="pr-ex1" checked class="w-4 h-4 accent-indigo-600"><span class="text-sm font-bold text-slate-800">✍️ অনুশীলন ১</span></label>
+        <label class="flex items-center gap-2.5 bg-slate-50 hover:bg-indigo-50 border-2 border-slate-200 hover:border-indigo-300 rounded-xl p-3 cursor-pointer transition"><input type="checkbox" id="pr-ex2" checked class="w-4 h-4 accent-indigo-600"><span class="text-sm font-bold text-slate-800">✅ অনুশীলন ২</span></label>
+        <label class="flex items-center gap-2.5 bg-slate-50 hover:bg-indigo-50 border-2 border-slate-200 hover:border-indigo-300 rounded-xl p-3 cursor-pointer transition"><input type="checkbox" id="pr-ex3" checked class="w-4 h-4 accent-indigo-600"><span class="text-sm font-bold text-slate-800">🔤 অনুশীলন ৩</span></label>
+        <label class="flex items-center gap-2.5 bg-slate-50 hover:bg-indigo-50 border-2 border-slate-200 hover:border-indigo-300 rounded-xl p-3 cursor-pointer transition"><input type="checkbox" id="pr-ex4" checked class="w-4 h-4 accent-indigo-600"><span class="text-sm font-bold text-slate-800">🚂 অনুশীলন ৪</span></label>
+        <label class="flex items-center gap-2.5 bg-slate-50 hover:bg-emerald-50 border-2 border-slate-200 hover:border-emerald-300 rounded-xl p-3 cursor-pointer transition"><input type="checkbox" id="pr-key" class="w-4 h-4 accent-emerald-600"><span class="text-sm font-bold text-slate-800">🗝️ উত্তরপত্র</span></label>
+        <label class="flex items-center gap-2.5 bg-slate-50 hover:bg-teal-50 border-2 border-slate-200 hover:border-teal-300 rounded-xl p-3 cursor-pointer transition"><input type="checkbox" id="pr-guide" class="w-4 h-4 accent-teal-600"><span class="text-sm font-bold text-slate-800">🎓 শিক্ষক নির্দেশনা</span></label>
+        <label class="flex items-center gap-2.5 bg-slate-50 hover:bg-teal-50 border-2 border-slate-200 hover:border-teal-300 rounded-xl p-3 cursor-pointer transition"><input type="checkbox" id="pr-eye" class="w-4 h-4 accent-teal-600"><span class="text-sm font-bold text-slate-800">👀 চোখের যত্ন</span></label>
+        <label class="flex items-center gap-2.5 bg-slate-50 hover:bg-purple-50 border-2 border-slate-200 hover:border-purple-300 rounded-xl p-3 cursor-pointer transition"><input type="checkbox" id="pr-wc" class="w-4 h-4 accent-purple-600"><span class="text-sm font-bold text-slate-800">🎴 শব্দ কার্ড (৬টি/পেজ)</span></label>
+      </div>
+      <div class="flex items-center justify-between gap-2 bg-amber-50 border border-amber-200 rounded-xl p-3">
+        <span class="text-xs font-bold text-amber-900">সব নির্বাচন করো:</span>
+        <div class="flex gap-2">
+          <button onclick="selectAllPrint(true)" class="text-xs font-black bg-amber-400 hover:bg-amber-300 text-amber-950 px-3 py-1.5 rounded-lg transition">সব টিক দাও</button>
+          <button onclick="selectAllPrint(false)" class="text-xs font-black bg-slate-200 hover:bg-slate-300 text-slate-700 px-3 py-1.5 rounded-lg transition">সব মুছো</button>
+        </div>
+      </div>
+    </div>
+    <div class="p-4 bg-slate-50 border-t border-slate-200 flex flex-col sm:flex-row gap-2.5">
+      <button onclick="generatePrint()" class="flex-1 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-black py-3 rounded-2xl shadow-lg transition active:scale-95 flex items-center justify-center gap-2">
+        <i class="fas fa-print"></i> প্রিন্ট করুন
+      </button>
+      <button onclick="closePrintModal()" class="sm:w-32 bg-white hover:bg-slate-100 text-slate-700 font-bold py-3 rounded-2xl border-2 border-slate-200 transition active:scale-95">বাতিল</button>
+    </div>
+  </div>
+</div>
+
+<!-- INSTALL MODAL -->
+<div id="installModal" class="no-print fixed inset-0 bg-slate-900/75 backdrop-blur-sm z-[70] hidden items-center justify-center p-3 sm:p-4">
+  <div class="bg-white rounded-3xl max-w-lg w-full shadow-2xl overflow-hidden border-4 border-pink-200 max-h-[92vh] flex flex-col">
+    <div class="bg-gradient-to-r from-pink-600 to-rose-600 p-4 text-white flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <i class="fas fa-circle-down text-2xl text-amber-200"></i>
+        <div>
+          <h3 class="text-lg sm:text-xl font-black">অ্যাপটি ইনস্টল করুন</h3>
+          <p class="text-[11px] text-pink-100">হোম স্ক্রিনে যোগ করে অফলাইনে চালান</p>
+        </div>
+      </div>
+      <button onclick="closeInstallModal()" class="bg-white/20 hover:bg-white/30 w-9 h-9 rounded-full flex items-center justify-center transition"><i class="fas fa-xmark text-lg"></i></button>
+    </div>
+    <div class="p-4 sm:p-5 overflow-y-auto space-y-3">
+      <div id="installNativeBox" class="hidden bg-emerald-50 border-2 border-emerald-300 rounded-2xl p-4 text-center space-y-2">
+        <div class="text-4xl">✨</div>
+        <p class="text-sm font-bold text-emerald-900">আপনার ব্রাউজার সরাসরি ইনস্টল সাপোর্ট করছে!</p>
+        <button onclick="triggerNativeInstall()" class="w-full bg-gradient-to-r from-pink-600 to-rose-600 hover:from-pink-500 hover:to-rose-500 text-white font-black py-3 rounded-2xl shadow-lg transition active:scale-95">
+          <i class="fas fa-download mr-1"></i> এখনই ইনস্টল করুন
+        </button>
+      </div>
+      <p id="installHeaderMsg" class="text-xs text-slate-600 font-semibold bg-pink-50 border border-pink-200 rounded-xl p-3"></p>
+      <div id="installSteps" class="space-y-2.5 text-sm"></div>
+    </div>
+    <div class="p-4 bg-slate-50 border-t border-slate-200">
+      <button onclick="closeInstallModal()" class="w-full bg-slate-700 hover:bg-slate-600 text-white font-bold py-3 rounded-2xl transition active:scale-95">বুঝেছি, ধন্যবাদ 👍</button>
+    </div>
+  </div>
+</div>
+
+<div id="printArea"></div>
+
+<script>
+/* ═══════════ DATA ═══════════ */
+const WEEK_DAYS = [
+  { bn:'রবিবার',      en:'Sunday',    icon:'☀️', color:'#ef4444', desc:'সপ্তাহের প্রথম দিন। স্কুলে যাই —  সকলের সাথে আনন্দ করি!' },
+  { bn:'সোমবার',      en:'Monday',    icon:'🌤️', color:'#f59e0b', desc:'সপ্তাহের দ্বিতীয় দিন। স্কুলে যাই, নতুন কিছু শিখি।' },
+  { bn:'মঙ্গলবার',    en:'Tuesday',   icon:'🌥️', color:'#eab308', desc:'তৃতীয় দিন। পড়াশোনা আর খেলাধুলার মজা।' },
+  { bn:'বুধবার',      en:'Wednesday', icon:'⛅', color:'#10b981', desc:'চতুর্থ দিন। পড়া, আঁকা, গান — নানা কাজ করি।' },
+  { bn:'বৃহস্পতিবার', en:'Thursday',  icon:'🌦️', color:'#0ea5e9', desc:'পঞ্চম দিন। সাইকেল চালাই, মাঠে খেলি।' },
+  { bn:'শুক্রবার',    en:'Friday',    icon:'🎉', color:'#8b5cf6', desc:'ষষ্ঠ দিন। জুম্মার দিন, সাপ্তাহিক ছুটির শুরু!' },
+  { bn:'শনিবার',      en:'Saturday',  icon:'🎈', color:'#ec4899', desc:'সপ্তাহের শেষ দিন। ছুটি — বেড়াতে যাই, খেলি!' }
+];
+
+const LESSON_SENTENCES = [
+  'সাত দিনে এক সপ্তাহ।','সাত দিনের সাতটি নাম।','রাফি একটা ট্রেনের সামনে বসে আছে।','তার কাছে দিনগুলো নাম শুনি।',
+  'আমরা সাত দিনে অনেক কাজ করি।','কখনো পড়ি, কখনো খেলি।','কোনোদিন একেবারে ছুটি।','রাফি সাত দিনে অনেক কাজ করে।',
+  'গান শোনে, গান শেখে, ছবি আঁকে, সাইকেল চালায়।','মাঠে খেলতে যায়, ছড়ার বই পড়ে।','কাগজ কেটে ফুল বানায়।','ছুটির দিনে বেড়াতে যায়।'
+];
+
+const VOCABULARY = [
+  { word:'সপ্তাহ', emoji:'📅', meaning:'সাত দিনের সমষ্টি', breakdown:'স + প + ্ + ত + া + হ' },
+  { word:'ট্রেন',  emoji:'🚂', meaning:'রেলগাড়ি', breakdown:'ট + ্ + র + ে + ন' },
+  { word:'দিন',    emoji:'🌞', meaning:'২৪ ঘণ্টার সময়কাল', breakdown:'দ + ি + ন' },
+  { word:'রাফি',   emoji:'👦', meaning:'ছেলের নাম', breakdown:'র + া + ফ + ি' },
+  { word:'ছুটি',   emoji:'🎈', meaning:'কাজ থেকে অবসর', breakdown:'ছ + ু + ট + ি' }
+];
+
+const COMPOUNDS = [
+  { compound:'প্ত', word:'সপ্তাহ',     parts:['প','ত'], hint:'প + হসন্ত + ত = প্ত', icon:'📅' },
+  { compound:'ট্র', word:'ট্রেন',      parts:['ট','র'], hint:'ট + হসন্ত + র = ট্র', icon:'🚂' },
+  { compound:'ঙ্গ', word:'মঙ্গলবার',   parts:['ঙ','গ'], hint:'ঙ + হসন্ত + গ = ঙ্গ', icon:'🌥️' },
+  { compound:'স্প', word:'বৃহস্পতিবার', parts:['স','প'], hint:'স + হসন্ত + প = স্প', icon:'🌦️' },
+  { compound:'ক্র', word:'শুক্রবার',    parts:['ক','র'], hint:'ক + হসন্ত + র = ক্র', icon:'🎉' }
+];
+
+const FILL_BLANKS = [
+  { id:1, prompt:'সাত দিনে এক ______ ।', options:['সপ্তাহ','মাস','বছর'], correct:'সপ্তাহ', template:'সাত দিনে এক {S} ।' },
+  { id:2, prompt:'রাফি একটা ______ সামনে বসে আছে।', options:['ট্রেন','গাড়ি','বাস'], correct:'ট্রেন', template:'রাফি একটা {S} সামনে বসে আছে।' },
+  { id:3, prompt:'রবিবারের পরের দিন ______ ।', options:['সোমবার','মঙ্গলবার','বুধবার'], correct:'সোমবার', template:'রবিবারের পরের দিন {S} ।' },
+  { id:4, prompt:'ছুটির দিনে রাফি ______ যায়।', options:['বেড়াতে','স্কুলে','পড়তে'], correct:'বেড়াতে', template:'ছুটির দিনে রাফি {S} যায়।' }
+];
+
+const TRUE_FALSE = [
+  { id:1, text:'সাত দিনে এক মাস হয়।', isTrue:false },
+  { id:2, text:'সপ্তাহে সাত দিন আছে।', isTrue:true },
+  { id:3, text:'শুক্রবার সপ্তাহের প্রথম দিন।', isTrue:false },
+  { id:4, text:'রাফি গান শোনে ও ছবি আঁকে।', isTrue:true },
+  { id:5, text:'ছুটির দিনে রাফি বেড়াতে যায়।', isTrue:true },
+  { id:6, text:'বৃহস্পতিবার হলো সপ্তাহের শেষ দিন।', isTrue:false }
+];
+
+const COMPOUND_MATCH = [
+  { id:1, word:'সপ্তাহ', options:['প্ত','স্প','ঙ্গ'], correct:'প্ত' },
+  { id:2, word:'ট্রেন', options:['ট্র','ক্র','প্ত'], correct:'ট্র' },
+  { id:3, word:'মঙ্গলবার', options:['ঙ্গ','স্প','ট্র'], correct:'ঙ্গ' },
+  { id:4, word:'বৃহস্পতিবার', options:['স্প','ক্র','ঙ্গ'], correct:'স্প' },
+  { id:5, word:'শুক্রবার', options:['ক্র','প্ত','ট্র'], correct:'ক্র' }
+];
+
+const ORDER_DAYS_CORRECT = ['রবিবার','সোমবার','মঙ্গলবার','বুধবার','বৃহস্পতিবার','শুক্রবার','শনিবার'];
+
+/* ═══════════ STATE ═══════════ */
+let audioEnabled = true;
+let currentSpeechRate = 0.8;
+let currentUtterance = null;
+let activeReadingIndex = -1;
+let selectedDayIndex = -1;
+
+let fillBlanksAnswers = {};
+let trueFalseAnswers = {};
+let compoundMatchAnswers = {};
+let orderDaysSelected = [];
+
+/* Child's name + question voice preference (persisted) */
+let childName = '';
+let questionVoiceEnabled = true;
+try {
+  childName = localStorage.getItem('sgChildName') || '';
+  const qv = localStorage.getItem('sgQuestionVoice');
+  if(qv === 'false') questionVoiceEnabled = false;
+} catch(e){}
+
+const BN_DIGITS = ['০','১','২','৩','৪','৫','৬','৭','৮','৯'];
+function toBn(v){ return String(v).replace(/\d/g, d => BN_DIGITS[+d]); }
+
+/* Name helpers */
+function getNamePrefix(){
+  const n = (childName || '').trim();
+  return n ? n + ', ' : '';
+}
+function saveChildName(name){
+  childName = name;
+  try { localStorage.setItem('sgChildName', name); } catch(e){}
+  updateHeaderGreeting();
+}
+function clearChildName(){
+  playSound('click');
+  childName = '';
+  const inp = document.getElementById('childNameInput');
+  if(inp) inp.value = '';
+  try { localStorage.setItem('sgChildName', ''); } catch(e){}
+  updateHeaderGreeting();
+  showToast('নাম মুছে ফেলা হয়েছে।');
+}
+function updateHeaderGreeting(){
+  const el = document.getElementById('headerGreeting');
+  if(!el) return;
+  const n = (childName || '').trim();
+  if(n){
+    el.innerHTML = `<span>👋</span><span>স্বাগতম, <strong class="text-yellow-200 text-sm sm:text-base font-extrabold drop-shadow">${n}</strong>! শুভ শিক্ষা 🎓</span><span>✨</span>`;
+  } else {
+    el.innerHTML = `<span>✨</span><span>পরিকল্পনা ও ডিজাইনে: <strong class="text-yellow-200 text-sm sm:text-base font-extrabold drop-shadow">মো: সাইফুল্লাহ সরোয়ার</strong></span><span>👑</span>`;
+  }
+}
+
+/* ═══════════ AUDIO ═══════════ */
+const PRAISES = ['বাহবা সুন্দর!','অসাধারণ হয়েছে!','খুব ভালো!','অপূর্ব!','তুমি দারুণ পারো!'];
+const RETRIES = ['আবার চেষ্টা করো!','চিন্তা করে আবার ট্রাই করো!','হলো না, আবার চেষ্টা করো!'];
+function getRandomItem(a){ return a[Math.floor(Math.random()*a.length)]; }
+
+let audioCtx = null;
+function getAudioContext(){
+  if(!audioCtx){ const AC = window.AudioContext || window.webkitAudioContext; if(AC) audioCtx = new AC(); }
+  if(audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+  return audioCtx;
+}
+function playSound(type){
+  if(!audioEnabled) return;
+  try{
+    const ctx = getAudioContext(); if(!ctx) return;
+    const o = ctx.createOscillator(), g = ctx.createGain();
+    o.connect(g); g.connect(ctx.destination);
+    const now = ctx.currentTime;
+    if(type === 'correct'){
+      o.type='triangle';
+      o.frequency.setValueAtTime(523.25,now); o.frequency.setValueAtTime(659.25,now+.1);
+      o.frequency.setValueAtTime(783.99,now+.2); o.frequency.setValueAtTime(1046.5,now+.3);
+      g.gain.setValueAtTime(.3,now); g.gain.exponentialRampToValueAtTime(.01,now+.5);
+      o.start(now); o.stop(now+.5);
+    } else if(type === 'wrong'){
+      o.type='sawtooth';
+      o.frequency.setValueAtTime(220,now); o.frequency.setValueAtTime(164.81,now+.15);
+      g.gain.setValueAtTime(.3,now); g.gain.exponentialRampToValueAtTime(.01,now+.4);
+      o.start(now); o.stop(now+.4);
+    } else if(type === 'click'){
+      o.type='sine';
+      o.frequency.setValueAtTime(600,now); o.frequency.exponentialRampToValueAtTime(200,now+.05);
+      g.gain.setValueAtTime(.2,now); g.gain.exponentialRampToValueAtTime(.01,now+.05);
+      o.start(now); o.stop(now+.05);
+    } else if(type === 'whistle'){
+      o.type='sine';
+      o.frequency.setValueAtTime(880,now); o.frequency.setValueAtTime(1100,now+.15);
+      o.frequency.setValueAtTime(880,now+.3); o.frequency.setValueAtTime(1100,now+.45);
+      g.gain.setValueAtTime(.25,now); g.gain.exponentialRampToValueAtTime(.01,now+.6);
+      o.start(now); o.stop(now+.6);
+    } else if(type === 'train'){
+      o.type='sawtooth';
+      o.frequency.setValueAtTime(180,now); o.frequency.setValueAtTime(220,now+.2);
+      o.frequency.setValueAtTime(180,now+.4); o.frequency.setValueAtTime(220,now+.6);
+      g.gain.setValueAtTime(.15,now); g.gain.exponentialRampToValueAtTime(.01,now+.8);
+      o.start(now); o.stop(now+.8);
+    }
+  } catch(e){}
+}
+
+let availableBengaliVoice = null;
+let audioPlayerFallback = null;
+function initBengaliVoices(){
+  if('speechSynthesis' in window){
+    const v = window.speechSynthesis.getVoices();
+    availableBengaliVoice = v.find(x =>
+      x.lang.toLowerCase().includes('bn') || x.lang.toLowerCase().includes('bangla') ||
+      x.lang.toLowerCase().includes('bengali') ||
+      x.name.toLowerCase().includes('bengali') || x.name.toLowerCase().includes('bangla')) || null;
+  }
+}
+if('speechSynthesis' in window){
+  window.speechSynthesis.onvoiceschanged = initBengaliVoices;
+  initBengaliVoices();
+}
+
+function speakText(text, onEnd=null){
+  if(!audioEnabled){ if(onEnd) onEnd(); return; }
+  getAudioContext();
+  if(audioPlayerFallback){ audioPlayerFallback.pause(); audioPlayerFallback = null; }
+  function playOnline(phrase, cb){
+    try{
+      const url = `https://translate.google.com/translate_tts?ie=UTF-8&q=${encodeURIComponent(phrase)}&tl=bn&client=tw-ob`;
+      audioPlayerFallback = new Audio(url);
+      audioPlayerFallback.playbackRate = currentSpeechRate;
+      audioPlayerFallback.onended = () => { audioPlayerFallback = null; if(cb) cb(); };
+      audioPlayerFallback.onerror = () => { audioPlayerFallback = null; if(cb) cb(); };
+      const p = audioPlayerFallback.play();
+      if(p !== undefined) p.catch(() => { if(cb) cb(); });
+    } catch(e){ if(cb) cb(); }
+  }
+  if('speechSynthesis' in window){
+    if(window.speechSynthesis.paused) window.speechSynthesis.resume();
+    window.speechSynthesis.cancel();
+    initBengaliVoices();
+    if(!availableBengaliVoice){ playOnline(text, onEnd); return; }
+    setTimeout(() => {
+      try{
+        const u = new SpeechSynthesisUtterance(text);
+        u.lang = 'bn-BD'; u.rate = currentSpeechRate; u.pitch = 1.0;
+        if(availableBengaliVoice) u.voice = availableBengaliVoice;
+        let fired = false;
+        const safe = () => { if(!fired){ fired = true; if(onEnd) onEnd(); } };
+        u.onend = safe; u.onerror = () => playOnline(text, safe);
+        currentUtterance = u;
+        window.speechSynthesis.speak(u);
+      } catch(e){ playOnline(text, onEnd); }
+    }, 50);
+  } else playOnline(text, onEnd);
+}
+
+function stopAudio(){
+  if('speechSynthesis' in window) window.speechSynthesis.cancel();
+  if(audioPlayerFallback){ audioPlayerFallback.pause(); audioPlayerFallback = null; }
+  activeReadingIndex = -1;
+  renderPassage();
+  const b = document.getElementById('playBtnText');
+  const i = document.getElementById('playIcon');
+  if(b) b.innerText = 'পুরো পাঠ শোনো 🔊';
+  if(i) i.className = 'fas fa-volume-up text-lg';
+}
+
+function toggleAudio(){
+  audioEnabled = !audioEnabled;
+  const t = document.getElementById('soundText');
+  const i = document.getElementById('soundIcon');
+  if(audioEnabled){
+    t.innerText = 'শব্দ চালু'; i.className = 'fas fa-volume-up text-amber-200'; playSound('click');
+  } else {
+    t.innerText = 'শব্দ বন্ধ'; i.className = 'fas fa-volume-xmark text-slate-300'; stopAudio();
+  }
+}
+function changeSpeechRate(r){ currentSpeechRate = parseFloat(r); playSound('click'); }
+
+/* Question voice toggle */
+function toggleQuestionVoice(enabled){
+  questionVoiceEnabled = enabled;
+  try { localStorage.setItem('sgQuestionVoice', enabled ? 'true' : 'false'); } catch(e){}
+  playSound('click');
+  if(enabled){
+    showToast('🔊 প্রশ্ন ভয়েস চালু করা হয়েছে');
+    repeatQuestion();
+  } else {
+    showToast('🔇 প্রশ্ন ভয়েস বন্ধ করা হয়েছে');
+    stopAudio();
+  }
+}
+
+/* ═══════════ TABS ═══════════ */
+function switchTab(name){
+  playSound('click');
+  stopAudio();
+  if(name !== 'traingame') stopTrainGame();
+  ['reading','wordcards','traingame','train','compound','exercises','cards','guide'].forEach(t => {
+    document.getElementById('section-' + t).classList.add('hidden');
+    document.getElementById('tab-' + t).classList.remove('active');
+  });
+  document.getElementById('section-' + name).classList.remove('hidden');
+  document.getElementById('tab-' + name).classList.add('active');
+  if(name === 'traingame') setTimeout(initTrainGame, 100);
+}
+
+/* ═══════════ READING ═══════════ */
+function renderPassage(){
+  const c = document.getElementById('passageContainer');
+  c.innerHTML = LESSON_SENTENCES.map((s,i) => {
+    const a = (activeReadingIndex === i);
+    return `<div onclick="readLine(${i})" class="line-card p-3 rounded-2xl border-2 ${a ? 'active-reading' : 'bg-white border-sky-100 hover:border-sky-300'} cursor-pointer flex items-center justify-between gap-3 shadow-sm transition">
+      <div class="flex items-center gap-3">
+        <span class="w-7 h-7 rounded-full ${a ? 'bg-amber-500 text-white' : 'bg-sky-100 text-sky-800'} text-xs font-black flex items-center justify-center shrink-0">${toBn(i+1)}</span>
+        <span class="text-gray-800 font-bold">${s}</span>
+      </div>
+      <i class="fas ${a ? 'fa-volume-high text-amber-600 animate-pulse' : 'fa-volume-low text-sky-500'} text-sm"></i>
+    </div>`;
+  }).join('');
+  document.getElementById('sentenceCount').innerText = toBn(LESSON_SENTENCES.length) + 'টি বাক্য';
+}
+function readLine(i){ playSound('click'); activeReadingIndex = i; renderPassage(); speakText(LESSON_SENTENCES[i], () => { activeReadingIndex = -1; renderPassage(); }); }
+function readEntirePassage(){
+  playSound('click');
+  if(activeReadingIndex !== -1){ stopAudio(); return; }
+  document.getElementById('playBtnText').innerText = 'পড়া শুনছো... 🔊';
+  document.getElementById('playIcon').className = 'fas fa-spinner fa-spin text-lg';
+  let idx = 0;
+  function next(){
+    if(idx >= LESSON_SENTENCES.length){ stopAudio(); return; }
+    activeReadingIndex = idx; renderPassage();
+    speakText(LESSON_SENTENCES[idx], () => { idx++; next(); });
+  }
+  next();
+}
+function renderWordExplorer(){
+  document.getElementById('wordExplorerGrid').innerHTML = VOCABULARY.map((v,i) => `
+    <div onclick="exploreWord(${i})" class="bg-white rounded-2xl p-3 border-2 border-amber-200 hover:border-amber-400 shadow-sm cursor-pointer transform hover:-translate-y-1 transition text-center space-y-1">
+      <span class="text-3xl block">${v.emoji}</span>
+      <h4 class="text-xl font-black text-amber-950">${v.word}</h4>
+      <p class="text-[11px] font-bold text-slate-500">${v.breakdown}</p>
+      <span class="text-[10px] bg-amber-100 text-amber-900 font-bold px-2 py-0.5 rounded-full inline-block mt-1">${v.meaning}</span>
+    </div>`).join('');
+}
+function exploreWord(i){ playSound('click'); const v = VOCABULARY[i]; speakText(`${v.word}। অর্থ: ${v.meaning}।`); }
+function renderMiniTrain(){
+  document.getElementById('miniTrainRow').innerHTML = WEEK_DAYS.map(d => `
+    <span class="bg-white/80 backdrop-blur text-[10px] font-black px-2 py-1 rounded-full border border-sky-300 text-sky-900 shadow-sm">${d.bn}</span>`).join('');
+}
+
+/* ═══════════ WORD CARDS ═══════════ */
+const CARD_COLORS = [
+  { from:'#ef4444', to:'#f97316', shadow:'rgba(239,68,68,0.4)' },
+  { from:'#f59e0b', to:'#fbbf24', shadow:'rgba(245,158,11,0.4)' },
+  { from:'#eab308', to:'#facc15', shadow:'rgba(234,179,8,0.4)' },
+  { from:'#10b981', to:'#34d399', shadow:'rgba(16,185,129,0.4)' },
+  { from:'#0ea5e9', to:'#38bdf8', shadow:'rgba(14,165,233,0.4)' },
+  { from:'#8b5cf6', to:'#a78bfa', shadow:'rgba(139,92,246,0.4)' },
+  { from:'#ec4899', to:'#f472b6', shadow:'rgba(236,72,153,0.4)' }
+];
+function renderWordCards(){
+  document.getElementById('wordCardsGrid').innerHTML = WEEK_DAYS.map((d, i) => {
+    const c = CARD_COLORS[i];
+    return `<div onclick="speakDayCard(${i})" data-card="${i}" class="word-card-item rounded-3xl p-4 sm:p-5 text-white text-center space-y-2 shadow-xl border-4 border-white/40" style="background:linear-gradient(135deg,${c.from},${c.to});box-shadow:0 10px 30px ${c.shadow}">
+      <div class="speaker-badge"><i class="fas fa-volume-up"></i></div>
+      <div class="text-4xl sm:text-5xl drop-shadow-md">${d.icon}</div>
+      <div class="text-2xl sm:text-3xl font-title font-black drop-shadow-md">${d.bn}</div>
+      <div class="text-xs sm:text-sm font-bold opacity-90 tracking-widest">${d.en}</div>
+      <div class="mt-1 inline-block bg-white/25 rounded-full px-3 py-0.5 text-[10px] font-black">👆 টাচ করো</div>
+    </div>`;
+  }).join('');
+}
+function speakDayCard(i){
+  playSound('click');
+  const d = WEEK_DAYS[i];
+  const card = document.querySelector(`.word-card-item[data-card="${i}"]`);
+  if(card){ card.classList.add('speaking'); setTimeout(() => card.classList.remove('speaking'), 1100); }
+  const order = ['প্রথম','দ্বিতীয়','তৃতীয়','চতুর্থ','পঞ্চম','ষষ্ঠ','সপ্তম'][i];
+  speakText(`${d.bn}। ${d.en}। সপ্তাহের ${order} দিন।`);
+}
+
+/* ═══════════ PRINT WORD CARDS ═══════════ */
+function printWordCards(){
+  playSound('click'); stopAudio();
+  const includeEn = document.getElementById('wc-include-en').checked;
+  const includeGuide = document.getElementById('wc-include-guide').checked;
+  let html = '';
+  const totalPages = Math.ceil(WEEK_DAYS.length / 6);
+  for(let page = 0; page < totalPages; page++){
+    const chunk = WEEK_DAYS.slice(page * 6, page * 6 + 6);
+    html += `<div class="pr-page${page > 0 ? ' pr-pagebreak' : ''}">`;
+    if(page === 0){
+      html += `<div class="pr-head">
+        <div class="pr-emoji-row">🚂 📅 🎴 🚃 ✨</div>
+        <div class="pr-kicker">📚 আমার বাংলা বই • প্রথম শ্রেণি • পাঠ ৫ : সাত দিনের কথা</div>
+        <h1>🎴 সাত দিনের শব্দ কার্ড</h1>
+        <div class="pr-emoji-line">✂️ কেটে ফ্ল্যাশ কার্ড বানাও ✂️</div>
+      </div>`;
+    }
+    html += `<div class="wc-print-grid">`;
+    chunk.forEach(d => {
+      html += `<div class="wc-print-card">
+        <div class="wc-icon">${d.icon}</div>
+        <div class="wc-name">${d.bn}</div>
+        ${includeEn ? `<div class="wc-en">${d.en}</div>` : ''}
+        <div class="wc-cut">✂️ - - - - - - - - - - - - - - - - - - ✂️</div>
+      </div>`;
+    });
+    html += `</div>`;
+    if(includeGuide && page === totalPages - 1){
+      html += `<div class="pr-sec" style="margin-top:10mm">
+        <h2>📋 কার্ড ব্যবহারের নির্দেশনা</h2>
+        <ul class="pr-ol" style="margin-left:14px">
+          <li>🎨 রঙিন কাগজে প্রিন্ট করে কেটে নিন।</li>
+          <li>📅 শিশুকে কার্ড দেখিয়ে বারের নাম বলতে বলুন।</li>
+          <li>🚂 দিনের কার্ডগুলো ক্রমানুসারে সাজিয়ে "ট্রেন" বানাতে দিন।</li>
+          <li>⭐ লেমিনেট করে রাখলে অনেকদিন ব্যবহার করা যাবে।</li>
+        </ul>
+      </div>`;
+    }
+    html += `<div class="pr-foot">🎴 সাত দিনের শব্দ কার্ড • পাঠ ৫ • মো: সাইফুল্লাহ সরোয়ার ⭐</div></div>`;
+  }
+  document.getElementById('printArea').innerHTML = html;
+  setTimeout(() => window.print(), 350);
+}
+
+/* ═══════════ TRAIN GAME (FIXED) ═══════════ */
+let tgCanvas, tgCtx;
+let tgAnimationId = null;
+let tgAllCoaches = [];   // ALL coaches (attached + movable) — persisted across questions
+let tgScore = 0;
+let tgQuestionIndex = 0;
+let tgProcessing = false;
+let tgAttachedCount = 0;
+
+const TG_QUESTIONS = [
+  { text:'সপ্তাহের প্রথম দিন কোনটি?', answer:'রবিবার',  orderIndex:0 },
+  { text:'রবিবারের পরের দিন কোনটি?',  answer:'সোমবার',  orderIndex:1 },
+  { text:'সপ্তাহের তৃতীয় দিন কোনটি?', answer:'মঙ্গলবার', orderIndex:2 },
+  { text:'চতুর্থ দিন কোনটি?',          answer:'বুধবার',   orderIndex:3 },
+  { text:'সপ্তাহের পঞ্চম দিন কোনটি?', answer:'বৃহস্পতিবার', orderIndex:4 },
+  { text:'জুম্মার দিন কোনটি?',         answer:'শুক্রবার', orderIndex:5 },
+  { text:'সপ্তাহের শেষ দিন কোনটি?',   answer:'শনিবার',  orderIndex:6 }
+];
+
+const COACH_COLORS = [
+  { light:'#fca5a5', dark:'#dc2626' },
+  { light:'#fdba74', dark:'#ea580c' },
+  { light:'#fde047', dark:'#ca8a04' },
+  { light:'#86efac', dark:'#16a34a' },
+  { light:'#7dd3fc', dark:'#0284c7' },
+  { light:'#c4b5fd', dark:'#7c3aed' },
+  { light:'#f9a8d4', dark:'#db2777' }
+];
+
+class TgCoach {
+  constructor(day, dayIndex, isCorrect, cw, ch){
+    this.day = day;
+    this.dayIndex = dayIndex;
+    this.isCorrect = isCorrect;
+    this.width = 110;
+    this.height = 72;
+    this.x = Math.random() * (cw - 240) + 120;
+    this.y = Math.random() * (ch - 240) + 140;
+    this.vx = (Math.random() < 0.5 ? 1 : -1) * (0.7 + Math.random() * 0.5);
+    this.vy = (Math.random() < 0.5 ? 1 : -1) * (0.4 + Math.random() * 0.3);
+    this.color = COACH_COLORS[dayIndex % COACH_COLORS.length];
+    this.attached = false;
+    this.targetX = 0;
+    this.targetY = 0;
+    this.wiggle = Math.random() * Math.PI * 2;
+    this.shakeTime = 0;
+    this.pulse = 0;
+  }
+
+  update(cw, ch){
+    if(this.attached){
+      // Smoothly move to target position (attached to train)
+      const dx = this.targetX - this.x;
+      const dy = this.targetY - this.y;
+      this.x += dx * 0.18;
+      this.y += dy * 0.18;
+      // Snap when close enough
+      if(Math.abs(dx) < 0.5 && Math.abs(dy) < 0.5){
+        this.x = this.targetX;
+        this.y = this.targetY;
+      }
+      return;
+    }
+    if(this.shakeTime > 0){
+      this.shakeTime -= 0.05;
+      this.x += Math.sin(this.shakeTime * 40) * 3;
+      return;
+    }
+    this.wiggle += 0.05;
+    this.pulse = (this.pulse + 0.08) % (Math.PI * 2);
+    this.x += this.vx;
+    this.y += this.vy + Math.sin(this.wiggle) * 0.4;
+    if(this.x < this.width/2 + 10 || this.x > cw - this.width/2 - 10) this.vx *= -1;
+    if(this.y < this.height/2 + 110 || this.y > ch - this.height/2 - 10) this.vy *= -1;
+  }
+
+  draw(ctx){
+    ctx.save();
+    ctx.translate(this.x, this.y);
+    const w = this.width, h = this.height;
+
+    // Soft glow when free (movable)
+    if(!this.attached){
+      const glow = 6 + Math.sin(this.pulse) * 4;
+      ctx.shadowColor = 'rgba(251, 191, 36, ' + (0.5 + Math.sin(this.pulse) * 0.3) + ')';
+      ctx.shadowBlur = glow + 10;
+    }
+
+    // Shadow
+    ctx.fillStyle = 'rgba(0,0,0,0.18)';
+    ctx.beginPath();
+    ctx.ellipse(2, h/2 + 14, w/2.2, 6, 0, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.shadowBlur = 0;
+
+    // Body
+    const grad = ctx.createLinearGradient(-w/2, -h/2, w/2, h/2);
+    grad.addColorStop(0, this.color.light);
+    grad.addColorStop(1, this.color.dark);
+    ctx.fillStyle = grad;
+    ctx.beginPath();
+    ctx.roundRect(-w/2, -h/2, w, h, 10);
+    ctx.fill();
+    ctx.strokeStyle = '#0f172a';
+    ctx.lineWidth = 2.5;
+    ctx.stroke();
+
+    // Roof
+    ctx.fillStyle = '#92400e';
+    ctx.beginPath();
+    ctx.roundRect(-w/2 - 6, -h/2 - 10, w + 12, 11, 4);
+    ctx.fill();
+    ctx.strokeStyle = '#0f172a';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    // Window stripe
+    ctx.fillStyle = 'rgba(255,255,255,0.35)';
+    ctx.beginPath();
+    ctx.roundRect(-w/2 + 6, -h/2 + 6, w - 12, 14, 5);
+    ctx.fill();
+
+    // Wheels
+    ctx.fillStyle = '#1e293b';
+    ctx.beginPath(); ctx.arc(-25, h/2 + 6, 9, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath(); ctx.arc(0, h/2 + 6, 9, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath(); ctx.arc(25, h/2 + 6, 9, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = '#64748b';
+    ctx.beginPath(); ctx.arc(-25, h/2 + 6, 3, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath(); ctx.arc(0, h/2 + 6, 3, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath(); ctx.arc(25, h/2 + 6, 3, 0, Math.PI * 2); ctx.fill();
+
+    // Day name
+    ctx.fillStyle = '#0f172a';
+    ctx.font = 'bold 19px "Hind Siliguri", sans-serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(this.day, 0, 4);
+
+    ctx.restore();
+  }
+
+  contains(x, y){
+    return Math.abs(x - this.x) <= this.width/2 && Math.abs(y - this.y) <= this.height/2;
+  }
+}
+
+function drawTrainEngine(ctx, engineX, engineY, attachedCount){
+  ctx.save();
+  ctx.translate(engineX, engineY);
+
+  ctx.fillStyle = 'rgba(0,0,0,0.2)';
+  ctx.beginPath();
+  ctx.ellipse(0, 45, 55, 8, 0, 0, Math.PI * 2);
+  ctx.fill();
+
+  const grad = ctx.createLinearGradient(0, -40, 0, 40);
+  grad.addColorStop(0, '#14b8a6');
+  grad.addColorStop(1, '#0f766e');
+  ctx.fillStyle = grad;
+  ctx.beginPath();
+  ctx.roundRect(-55, -35, 110, 70, 10);
+  ctx.fill();
+  ctx.strokeStyle = '#0f172a';
+  ctx.lineWidth = 3;
+  ctx.stroke();
+
+  ctx.fillStyle = '#0f766e';
+  ctx.beginPath();
+  ctx.roundRect(-30, -70, 60, 40, 6);
+  ctx.fill();
+  ctx.strokeStyle = '#0f172a';
+  ctx.lineWidth = 3;
+  ctx.stroke();
+
+  ctx.fillStyle = '#bae6fd';
+  ctx.beginPath(); ctx.roundRect(-22, -62, 20, 22, 3); ctx.fill();
+  ctx.beginPath(); ctx.roundRect(2, -62, 20, 22, 3); ctx.fill();
+  ctx.strokeStyle = '#0f172a'; ctx.lineWidth = 2;
+  ctx.stroke(); ctx.stroke();
+
+  ctx.fillStyle = '#dc2626';
+  ctx.beginPath();
+  ctx.roundRect(-50, -55, 14, 22, 3);
+  ctx.fill();
+  ctx.strokeStyle = '#0f172a'; ctx.lineWidth = 2; ctx.stroke();
+
+  ctx.fillStyle = 'rgba(200,200,200,0.6)';
+  ctx.beginPath(); ctx.arc(-43, -70, 8, 0, Math.PI * 2); ctx.fill();
+  ctx.beginPath(); ctx.arc(-38, -82, 10, 0, Math.PI * 2); ctx.fill();
+
+  ctx.fillStyle = '#1e293b';
+  ctx.beginPath(); ctx.arc(-30, 42, 12, 0, Math.PI * 2); ctx.fill();
+  ctx.beginPath(); ctx.arc(30, 42, 12, 0, Math.PI * 2); ctx.fill();
+  ctx.fillStyle = '#64748b';
+  ctx.beginPath(); ctx.arc(-30, 42, 4, 0, Math.PI * 2); ctx.fill();
+  ctx.beginPath(); ctx.arc(30, 42, 4, 0, Math.PI * 2); ctx.fill();
+
+  // Counter badge
+  ctx.fillStyle = '#f59e0b';
+  ctx.beginPath();
+  ctx.arc(45, -70, 15, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.strokeStyle = '#0f172a'; ctx.lineWidth = 2; ctx.stroke();
+  ctx.fillStyle = '#0f172a';
+  ctx.font = 'bold 15px "Hind Siliguri", sans-serif';
+  ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.fillText(String(attachedCount), 45, -69);
+
+  ctx.restore();
+}
+
+function initTrainGame(){
+  tgCanvas = document.getElementById('trainGameCanvas');
+  if(!tgCanvas) return;
+  tgCtx = tgCanvas.getContext('2d');
+
+  const rect = tgCanvas.getBoundingClientRect();
+  tgCanvas.width = rect.width;
+  tgCanvas.height = rect.height;
+
+  tgCanvas.removeEventListener('pointerdown', handleTgClick);
+  tgCanvas.addEventListener('pointerdown', handleTgClick);
+
+  // FULL RESET
+  tgAllCoaches = [];
+  tgScore = 0;
+  tgQuestionIndex = 0;
+  tgProcessing = false;
+  tgAttachedCount = 0;
+  document.getElementById('tgScoreText').innerText = '০';
+  document.getElementById('tgOverlay').classList.add('hidden');
+  document.getElementById('tgOverlay').classList.remove('flex');
+
+  // Prefill name input
+  const inp = document.getElementById('childNameInput');
+  if(inp) inp.value = childName;
+  const qv = document.getElementById('questionVoiceToggle');
+  if(qv) qv.checked = questionVoiceEnabled;
+
+  loadTgQuestion();
+  startTgLoop();
+}
+
+function loadTgQuestion(){
+  if(tgQuestionIndex >= TG_QUESTIONS.length){
+    showTgEndOverlay();
+    return;
+  }
+  const q = TG_QUESTIONS[tgQuestionIndex];
+  document.getElementById('tgQuestion').innerText = q.text;
+
+  // ═══ KEY FIX: Remove only NON-attached coaches, keep attached ones ═══
+  tgAllCoaches = tgAllCoaches.filter(c => c.attached);
+
+  // Build 4 new movable coaches
+  const correctDay = WEEK_DAYS.find(d => d.bn === q.answer);
+  const wrongDays = WEEK_DAYS.filter(d => d.bn !== q.answer);
+  // Shuffle
+  for(let i = wrongDays.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [wrongDays[i], wrongDays[j]] = [wrongDays[j], wrongDays[i]];
+  }
+  const picks = [correctDay, wrongDays[0], wrongDays[1], wrongDays[2]];
+  // Shuffle picks
+  for(let i = picks.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [picks[i], picks[j]] = [picks[j], picks[i]];
+  }
+
+  const newCoaches = picks.map(d => {
+    const di = WEEK_DAYS.findIndex(x => x.bn === d.bn);
+    const isCor = (d.bn === q.answer);
+    return new TgCoach(d.bn, di, isCor, tgCanvas.width, tgCanvas.height);
+  });
+
+  // Spread initial positions across the screen
+  const gap = tgCanvas.width / 5;
+  newCoaches.forEach((c, i) => {
+    c.x = 120 + i * gap;
+    c.y = tgCanvas.height - 120;
+  });
+
+  tgAllCoaches.push(...newCoaches);
+
+  // ═══ Speak question with child's name (if voice enabled) ═══
+  if(questionVoiceEnabled){
+    const prefix = getNamePrefix();
+    speakText(`${prefix}${q.text}`);
+  }
+}
+
+function repeatQuestion(){
+  playSound('click');
+  if(tgQuestionIndex >= TG_QUESTIONS.length) return;
+  const q = TG_QUESTIONS[tgQuestionIndex];
+  const prefix = getNamePrefix();
+  speakText(`${prefix}${q.text}`);
+}
+
+function startTgLoop(){
+  if(tgAnimationId) cancelAnimationFrame(tgAnimationId);
+  function loop(){
+    if(!tgCtx || !tgCanvas) return;
+    tgCtx.clearRect(0, 0, tgCanvas.width, tgCanvas.height);
+
+    // Sky
+    const bgGrad = tgCtx.createLinearGradient(0, 0, 0, tgCanvas.height);
+    bgGrad.addColorStop(0, '#bae6fd');
+    bgGrad.addColorStop(0.5, '#e0f2fe');
+    bgGrad.addColorStop(0.6, '#a7f3d0');
+    bgGrad.addColorStop(1, '#86efac');
+    tgCtx.fillStyle = bgGrad;
+    tgCtx.fillRect(0, 0, tgCanvas.width, tgCanvas.height);
+
+    // Sun
+    tgCtx.fillStyle = 'rgba(253, 224, 71, 0.7)';
+    tgCtx.beginPath();
+    tgCtx.arc(tgCanvas.width - 60, 60, 35, 0, Math.PI * 2);
+    tgCtx.fill();
+
+    // Clouds
+    drawCloud(tgCtx, 80, 70, 1);
+    drawCloud(tgCtx, tgCanvas.width * 0.5, 50, 0.8);
+    drawCloud(tgCtx, tgCanvas.width * 0.75, 90, 0.7);
+
+    // Railway
+    tgCtx.fillStyle = '#78716c';
+    tgCtx.fillRect(0, tgCanvas.height - 60, tgCanvas.width, 8);
+    tgCtx.fillStyle = '#a8a29e';
+    tgCtx.fillRect(0, tgCanvas.height - 52, tgCanvas.width, 4);
+    tgCtx.fillStyle = '#57534e';
+    for(let x = 0; x < tgCanvas.width; x += 40){
+      tgCtx.fillRect(x, tgCanvas.height - 56, 18, 14);
+    }
+
+    // Engine on left
+    drawTrainEngine(tgCtx, 100, tgCanvas.height - 130, tgAttachedCount);
+
+    // Draw ALL coaches (both attached and movable)
+    tgAllCoaches.forEach(c => {
+      c.update(tgCanvas.width, tgCanvas.height);
+      c.draw(tgCtx);
+    });
+
+    tgAnimationId = requestAnimationFrame(loop);
+  }
+  loop();
+}
+
+function drawCloud(ctx, x, y, scale){
+  ctx.save();
+  ctx.translate(x, y);
+  ctx.scale(scale, scale);
+  ctx.fillStyle = 'rgba(255,255,255,0.9)';
+  ctx.beginPath();
+  ctx.arc(-20, 0, 18, 0, Math.PI * 2);
+  ctx.arc(0, -8, 22, 0, Math.PI * 2);
+  ctx.arc(20, 0, 18, 0, Math.PI * 2);
+  ctx.arc(0, 8, 20, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.restore();
+}
+
+function stopTrainGame(){
+  if(tgAnimationId){ cancelAnimationFrame(tgAnimationId); tgAnimationId = null; }
+}
+
+function handleTgClick(e){
+  if(tgProcessing) return;
+  const r = tgCanvas.getBoundingClientRect();
+  const x = e.clientX - r.left, y = e.clientY - r.top;
+
+  for(let coach of tgAllCoaches){
+    if(coach.attached) continue;         // skip already-attached coaches
+    if(coach.shakeTime > 0) continue;    // skip currently shaking coaches
+    if(coach.contains(x, y)){
+      if(coach.isCorrect){
+        tgProcessing = true;
+        playSound('correct');
+        playSound('whistle');
+        tgScore += 20;
+        document.getElementById('tgScoreText').innerText = toBn(tgScore);
+
+        // ═══ ATTACH coach to train ═══
+        coach.attached = true;
+        tgAttachedCount++;
+        coach.targetX = 230 + (tgAttachedCount - 1) * 130;
+        coach.targetY = tgCanvas.height - 130;
+
+        const praise = getRandomItem(PRAISES);
+        const prefix = getNamePrefix();
+        speakText(coach.day, () => {
+          speakText(`${prefix}${praise} ${coach.day} সঠিক!`, () => {
+            tgQuestionIndex++;
+            tgProcessing = false;
+            setTimeout(loadTgQuestion, 900);
+          });
+        });
+      } else {
+        coach.shakeTime = 0.8;
+        playSound('wrong');
+        speakText(coach.day, () => speakText(getRandomItem(RETRIES)));
+      }
+      break;
+    }
+  }
+}
+
+function showTgEndOverlay(){
+  stopTrainGame();
+  const ov = document.getElementById('tgOverlay');
+  ov.classList.remove('hidden');
+  ov.classList.add('flex');
+  const prefix = getNamePrefix();
+  document.getElementById('tgOverlayMsg').innerText = `${prefix}তুমি মোট ${toBn(tgScore)} পয়েন্ট পেয়েছ! সাতটি বগি সঠিকভাবে ট্রেনে যোগ করেছ!`;
+  playSound('whistle');
+  speakText(`${prefix}সাবাস! তুমি সফলভাবে ট্রেন গেম শেষ করেছ!`);
+}
+
+function restartTrainGame(){
+  playSound('click');
+  stopAudio();
+  initTrainGame();
+}
+
+/* ═══════════ TRAIN VIEWER ═══════════ */
+function renderTrainCoaches(){
+  document.getElementById('trainCoaches').innerHTML = WEEK_DAYS.map((d,i) => `
+    <button onclick="selectDay(${i})" class="day-card shrink-0 flex flex-col items-center justify-center rounded-2xl border-2 border-sky-300 bg-white px-2 sm:px-3 py-2 shadow-md transition" data-day="${i}">
+      <span class="text-2xl">${d.icon}</span>
+      <span class="text-[10px] sm:text-xs font-black text-sky-900 mt-0.5 whitespace-nowrap">${d.bn}</span>
+      <span class="text-[8px] text-slate-400 font-bold">${d.en}</span>
+      <div class="flex gap-0.5 mt-1">
+        <span class="w-2 h-2 bg-slate-700 rounded-full"></span>
+        <span class="w-2 h-2 bg-slate-700 rounded-full"></span>
+      </div>
+    </button>`).join('');
+}
+function selectDay(i){
+  playSound('click'); playSound('train');
+  selectedDayIndex = i;
+  document.querySelectorAll('.day-card').forEach(el => el.classList.remove('active-day'));
+  const el = document.querySelector(`.day-card[data-day="${i}"]`);
+  if(el) el.classList.add('active-day');
+  const d = WEEK_DAYS[i];
+  document.getElementById('dayDetailIcon').innerText = d.icon;
+  document.getElementById('dayDetailName').innerText = d.bn;
+  document.getElementById('dayDetailDesc').innerText = d.desc + ' (' + d.en + ')';
+  document.getElementById('dayDetail').classList.remove('hidden');
+  const order = ['প্রথম','দ্বিতীয়','তৃতীয়','চতুর্থ','পঞ্চম','ষষ্ঠ','সপ্তম'][i];
+  speakText(`আজকের দিন ${d.bn}। সপ্তাহের ${order} দিন। ${d.desc}`);
+}
+function speakSelectedDay(){
+  if(selectedDayIndex < 0) return;
+  playSound('click');
+  const d = WEEK_DAYS[selectedDayIndex];
+  const order = ['প্রথম','দ্বিতীয়','তৃতীয়','চতুর্থ','পঞ্চম','ষষ্ঠ','সপ্তম'][selectedDayIndex];
+  speakText(`${d.bn}। সপ্তাহের ${order} দিন। ${d.desc}`);
+}
+
+/* ═══════════ COMPOUND ═══════════ */
+function renderCompounds(){
+  document.getElementById('compoundGrid').innerHTML = COMPOUNDS.map((c,i) => `
+    <div class="bg-white rounded-3xl p-5 border-4 border-indigo-200 shadow-md hover:border-indigo-400 transition space-y-3">
+      <div class="flex items-center justify-between">
+        <div class="text-3xl">${c.icon}</div>
+        <span class="text-xs bg-indigo-100 text-indigo-800 font-black px-2.5 py-1 rounded-full">${c.hint}</span>
+      </div>
+      <div class="flex items-center justify-center gap-1.5 py-2 flex-wrap">
+        <div class="compound-box"><span class="bn">${c.parts[0]}</span><span class="lbl">প্রথম</span></div>
+        <span class="text-3xl font-black text-indigo-400">+</span>
+        <div class="compound-box" style="background:#fee2e2"><span class="bn text-rose-600">্</span><span class="lbl">হসন্ত</span></div>
+        <span class="text-3xl font-black text-indigo-400">+</span>
+        <div class="compound-box"><span class="bn">${c.parts[1]}</span><span class="lbl">দ্বিতীয়</span></div>
+        <span class="text-3xl font-black text-indigo-400">=</span>
+        <div class="compound-box" style="background:#fef08a;border-color:#eab308"><span class="bn text-amber-800" style="font-size:26px">${c.compound}</span><span class="lbl text-amber-700">যুক্তবর্ণ</span></div>
+      </div>
+      <div class="text-center">
+        <p class="text-sm text-slate-500 font-bold">শব্দ:</p>
+        <p class="text-2xl font-black text-indigo-900 mt-0.5">${c.word}</p>
+      </div>
+      <button onclick="speakCompound(${i})" class="w-full bg-gradient-to-r from-indigo-500 to-violet-500 hover:from-indigo-600 hover:to-violet-600 text-white font-bold py-2 rounded-2xl shadow transition active:scale-95 flex items-center justify-center gap-2 text-sm">
+        <i class="fas fa-volume-up"></i> উচ্চারণ শোনো
+      </button>
+    </div>`).join('');
+}
+function speakCompound(i){ playSound('click'); const c = COMPOUNDS[i]; speakText(`${c.parts[0]}, হসন্ত, ${c.parts[1]}। যুক্তবর্ণ ${c.compound}। শব্দ: ${c.word}`); }
+
+/* ═══════════ EXERCISES ═══════════ */
+function renderExercises(){
+  document.getElementById('fillBlanksContainer').innerHTML = FILL_BLANKS.map(q => {
+    const ua = fillBlanksAnswers[q.id];
+    const line = ua ? q.template.replace('{S}',`<u class="text-amber-700 font-black decoration-amber-500">${ua.selected}</u>`) : q.prompt;
+    return `<div class="p-3.5 bg-slate-50 rounded-2xl border border-gray-200 space-y-2">
+      <p class="font-bold text-gray-800 text-sm sm:text-base">${q.prompt}</p>
+      <div class="flex flex-wrap items-center gap-2">
+        ${q.options.map(opt => {
+          let cls = "bg-sky-100 hover:bg-sky-200 text-sky-900 border-sky-300";
+          if(ua && ua.selected === opt) cls = ua.isCorrect ? "bg-emerald-500 text-white border-emerald-600 animate-praise" : "bg-rose-500 text-white border-rose-600";
+          return `<button onclick="selectFillBlank(${q.id}, '${opt}')" class="${cls} px-3 py-1.5 rounded-xl border text-sm font-bold transition active:scale-95">${opt}</button>`;
+        }).join('')}
+      </div>
+      <div class="text-sm font-bold text-sky-900 bg-sky-50/80 p-2 rounded-xl border border-sky-100">${line}</div>
+    </div>`;
+  }).join('');
+
+  document.getElementById('trueFalseContainer').innerHTML = TRUE_FALSE.map(it => {
+    const ua = trueFalseAnswers[it.id];
+    return `<div class="p-3.5 bg-slate-50 rounded-2xl border border-gray-200 space-y-3">
+      <p class="font-bold text-gray-800 text-sm">"${it.text}"</p>
+      <div class="flex items-center gap-2">
+        <button onclick="selectTrueFalse(${it.id}, true)" class="flex-1 py-2 rounded-xl text-xs font-black border transition active:scale-95 ${ua && ua.selected === true ? (ua.isCorrect ? 'bg-emerald-500 text-white border-emerald-600' : 'bg-rose-500 text-white border-rose-600') : 'bg-emerald-100 text-emerald-900 border-emerald-300'}">✓ সত্য</button>
+        <button onclick="selectTrueFalse(${it.id}, false)" class="flex-1 py-2 rounded-xl text-xs font-black border transition active:scale-95 ${ua && ua.selected === false ? (ua.isCorrect ? 'bg-emerald-500 text-white border-emerald-600' : 'bg-rose-500 text-white border-rose-600') : 'bg-rose-100 text-rose-900 border-rose-300'}">✕ মিথ্যা</button>
+      </div>
+    </div>`;
+  }).join('');
+
+  document.getElementById('compoundMatchContainer').innerHTML = COMPOUND_MATCH.map(q => {
+    const ua = compoundMatchAnswers[q.id];
+    return `<div class="p-3.5 bg-slate-50 rounded-2xl border border-gray-200 space-y-2">
+      <p class="font-bold text-gray-800 text-sm">"<span class="text-indigo-700">${q.word}</span>" — সঠিক যুক্তবর্ণ কোনটি?</p>
+      <div class="flex flex-wrap items-center gap-2">
+        ${q.options.map(opt => {
+          let cls = "bg-indigo-100 hover:bg-indigo-200 text-indigo-900 border-indigo-300";
+          if(ua && ua.selected === opt) cls = ua.isCorrect ? "bg-emerald-500 text-white border-emerald-600 animate-praise" : "bg-rose-500 text-white border-rose-600";
+          return `<button onclick="selectCompoundMatch(${q.id}, '${opt}')" class="${cls} px-4 py-1.5 rounded-xl border text-base font-black transition active:scale-95">${opt}</button>`;
+        }).join('')}
+      </div>
+    </div>`;
+  }).join('');
+
+  const remaining = WEEK_DAYS.filter(d => !orderDaysSelected.includes(d.bn));
+  const isCorrectOrder = orderDaysSelected.length === 7 && orderDaysSelected.join(',') === ORDER_DAYS_CORRECT.join(',');
+  document.getElementById('orderDaysContainer').innerHTML = `
+    <div class="p-3.5 bg-slate-50 rounded-2xl border border-gray-200 space-y-3">
+      <p class="font-bold text-gray-800 text-sm">🚂 ট্রেনের বগি সাজাও — রবিবার থেকে শুরু করে শনিবার পর্যন্ত:</p>
+      <div class="min-h-[48px] bg-white rounded-xl border-2 ${isCorrectOrder ? 'border-emerald-400 bg-emerald-50' : 'border-amber-300'} p-2 flex flex-wrap items-center gap-1.5">
+        ${orderDaysSelected.length > 0 ? orderDaysSelected.map((d,i) => `
+          <span class="bg-gradient-to-r from-amber-400 to-orange-400 text-amber-950 font-black text-xs px-2.5 py-1.5 rounded-lg shadow-sm border border-amber-500">
+            🚃 ${toBn(i+1)}. ${d}
+          </span>`).join('') : '<span class="text-gray-400 text-xs font-bold px-2">নিচের দিনগুলোতে টাচ করে ট্রেন সাজাও...</span>'}
+      </div>
+      <div class="flex flex-wrap items-center gap-2">
+        ${remaining.map(d => `<button onclick="addOrderDay('${d.bn}')" class="bg-white hover:bg-amber-100 border-2 border-amber-300 text-amber-900 font-bold text-xs px-3 py-1.5 rounded-xl shadow-sm transition active:scale-95">+ ${d.bn}</button>`).join('')}
+      </div>
+      ${orderDaysSelected.length > 0 ? `<button onclick="clearOrderDays()" class="text-rose-500 hover:text-rose-700 bg-rose-100 px-3 py-1.5 rounded-lg text-xs font-bold"><i class="fas fa-trash-can"></i> আবার শুরু</button>` : ''}
+      ${isCorrectOrder ? '<p class="text-emerald-600 font-black text-sm bg-emerald-100 px-3 py-2 rounded-xl">🎉 অসাধারণ! তুমি সাত দিন সঠিকভাবে সাজিয়েছ!</p>' : ''}
+    </div>`;
+  updateScore();
+}
+function selectFillBlank(qid, opt){
+  const q = FILL_BLANKS.find(x => x.id === qid);
+  const ok = (opt === q.correct);
+  fillBlanksAnswers[qid] = { selected: opt, isCorrect: ok };
+  playSound(ok ? 'correct' : 'wrong');
+  speakText(opt, () => speakText(ok ? `${getRandomItem(PRAISES)} সঠিক!` : getRandomItem(RETRIES)));
+  renderExercises();
+}
+function selectTrueFalse(qid, choice){
+  const it = TRUE_FALSE.find(x => x.id === qid);
+  const ok = (choice === it.isTrue);
+  trueFalseAnswers[qid] = { selected: choice, isCorrect: ok };
+  playSound(ok ? 'correct' : 'wrong');
+  speakText(choice ? 'সত্য' : 'মিথ্যা', () => speakText(ok ? getRandomItem(PRAISES) : getRandomItem(RETRIES)));
+  renderExercises();
+}
+function selectCompoundMatch(qid, opt){
+  const q = COMPOUND_MATCH.find(x => x.id === qid);
+  const ok = (opt === q.correct);
+  compoundMatchAnswers[qid] = { selected: opt, isCorrect: ok };
+  playSound(ok ? 'correct' : 'wrong');
+  speakText(opt, () => speakText(ok ? `${getRandomItem(PRAISES)} সঠিক!` : getRandomItem(RETRIES)));
+  renderExercises();
+}
+function addOrderDay(day){
+  playSound('click');
+  if(!orderDaysSelected.includes(day)) orderDaysSelected.push(day);
+  if(orderDaysSelected.length === 7){
+    const ok = orderDaysSelected.join(',') === ORDER_DAYS_CORRECT.join(',');
+    playSound(ok ? 'correct' : 'wrong');
+    if(ok) speakText(`${getRandomItem(PRAISES)} তুমি সাত দিন সঠিকভাবে সাজিয়েছ!`);
+    else speakText('ক্রমটি ঠিক হয়নি — আবার চেষ্টা করো!');
+  }
+  renderExercises();
+}
+function clearOrderDays(){ playSound('click'); orderDaysSelected = []; renderExercises(); }
+function resetExercises(){
+  playSound('click');
+  fillBlanksAnswers = {};
+  trueFalseAnswers = {};
+  compoundMatchAnswers = {};
+  orderDaysSelected = [];
+  renderExercises();
+}
+function updateScore(){
+  let total = 0;
+  Object.values(fillBlanksAnswers).forEach(a => { if(a.isCorrect) total += 10; });
+  Object.values(trueFalseAnswers).forEach(a => { if(a.isCorrect) total += 10; });
+  Object.values(compoundMatchAnswers).forEach(a => { if(a.isCorrect) total += 10; });
+  if(orderDaysSelected.join(',') === ORDER_DAYS_CORRECT.join(',')) total += 30;
+  document.getElementById('exerciseScore').innerText = toBn(total);
+  const sb = document.getElementById('starBadge');
+  if(total >= 130) sb.innerText = '⭐ ⭐ ⭐ ⭐ ⭐';
+  else if(total >= 90) sb.innerText = '⭐ ⭐ ⭐ ⭐';
+  else if(total >= 50) sb.innerText = '⭐ ⭐ ⭐';
+  else sb.innerText = '⭐ ⭐';
+}
+
+/* ═══════════ OTHER CARDS ═══════════ */
+function printCompoundCardsOnly(){
+  playSound('click'); stopAudio();
+  let html = `<div class="pr-page">
+    <div class="pr-head">
+      <div class="pr-emoji-row">🚂 📅 🎴 🚃 ✨</div>
+      <div class="pr-kicker">📚 আমার বাংলা বই • প্রথম শ্রেণি • পাঠ ৫ : সাত দিনের কথা</div>
+      <h1>🔤 যুক্তবর্ণ কার্ড</h1>
+      <div class="pr-emoji-line">✂️ কেটে ফ্ল্যাশ কার্ড বানাও ✂️</div>
+    </div>
+    <div class="cards-grid">
+      ${COMPOUNDS.map(c => `
+        <div class="flash-card compound-card">
+          <div class="fc-icon">${c.icon}</div>
+          <div class="fc-main">${c.compound}</div>
+          <div class="fc-sub">${c.parts[0]} + ্ + ${c.parts[1]}</div>
+          <div class="fc-sub" style="color:#64748b;font-size:10pt">শব্দ: ${c.word}</div>
+          <div class="fc-cut">✂️ - - - - - - - - - - - - - - - - - - ✂️</div>
+        </div>`).join('')}
+    </div>
+    <div class="pr-foot">🔤 যুক্তবর্ণ কার্ড • পাঠ ৫ : সাত দিনের কথা • মো: সাইফুল্লাহ সরোয়ার ⭐</div>
+  </div>`;
+  document.getElementById('printArea').innerHTML = html;
+  setTimeout(() => window.print(), 350);
+}
+
+/* ═══════════ PRINT MODAL ═══════════ */
+function openPrintModal(){ playSound('click'); stopAudio(); document.getElementById('printModal').classList.remove('hidden'); document.getElementById('printModal').classList.add('flex'); }
+function closePrintModal(){ document.getElementById('printModal').classList.add('hidden'); document.getElementById('printModal').classList.remove('flex'); }
+function selectAllPrint(s){
+  ['pr-story','pr-days','pr-words','pr-compound','pr-ex1','pr-ex2','pr-ex3','pr-ex4','pr-key','pr-guide','pr-eye','pr-wc']
+    .forEach(id => { const el = document.getElementById(id); if(el) el.checked = s; });
+}
+function buildPrintHTML(){
+  const inc = id => { const el = document.getElementById(id); return el && el.checked; };
+  const any = ['pr-story','pr-days','pr-words','pr-compound','pr-ex1','pr-ex2','pr-ex3','pr-ex4','pr-key','pr-guide','pr-eye','pr-wc'].some(id => inc(id));
+  if(!any){ alert('অনুগ্রহ করে অন্তত একটি অংশ নির্বাচন করুন।'); return null; }
+
+  let h = `<div class="pr-page"><div class="pr-head">
+    <div class="pr-emoji-row">🚂 🚃 📅 🚃 🎈 🚃 ✨</div>
+    <div class="pr-kicker">🇧🇩 জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড (NCTB) 🇧🇩</div>
+    <div class="pr-kicker">📚 আমার বাংলা বই • প্রথম শ্রেণি • পৃষ্ঠা ৮৫ 📚</div>
+    <h1>🚂 পাঠ ৫ : সাত দিনের কথা 📅</h1>
+    <div class="pr-emoji-line">🚂 🚃 🚃 🚃 🚃 🚃 🚃 🚃</div>
+    <div class="pr-meta">
+      <span>🏫 শ্রেণি : .....................</span>
+      <span>📝 বিষয় : বাংলা</span>
+      <span>📅 তারিখ : .....................</span>
+    </div>
+    <div class="pr-name">👦 শিক্ষার্থীর নাম : .............................................................................. &nbsp;&nbsp; 🔢 রোল : .................</div>
+  </div>`;
+
+  if(inc('pr-story')) h += `<div class="pr-sec"><h2>📖 ১। পাঠ পড়ো</h2>
+    <ol class="pr-ol">${LESSON_SENTENCES.map((s,i) => {
+      const em = ['📅','7️⃣','🚂','👂','💪','📚','🎈','👦','🎵','⚽','✂️','🏞️'];
+      return `<li>${em[i] || '📘'} ${s}</li>`;
+    }).join('')}</ol></div>`;
+
+  if(inc('pr-days')) h += `<div class="pr-sec"><h2>📅 ২। সপ্তাহের সাত দিন</h2>
+    <table class="pr-table"><thead><tr><th style="width:12%">ক্রম</th><th style="width:44%">বাংলা নাম</th><th style="width:44%">ইংরেজি নাম</th></tr></thead>
+    <tbody>${WEEK_DAYS.map((d,i) => `<tr><td><strong>${toBn(i+1)}</strong></td><td><strong>${d.icon} ${d.bn}</strong></td><td>${d.en}</td></tr>`).join('')}</tbody></table></div>`;
+
+  if(inc('pr-words')) h += `<div class="pr-sec"><h2>🔍 ৩। মূল শব্দভাণ্ডার</h2>
+    <table class="pr-table"><thead><tr><th style="width:25%">🔤 শব্দ</th><th style="width:40%">🔠 বর্ণ বিশ্লেষণ</th><th style="width:35%">💡 অর্থ</th></tr></thead>
+    <tbody>${VOCABULARY.map(v => `<tr><td><strong>${v.emoji} ${v.word}</strong></td><td>${v.breakdown}</td><td>${v.meaning}</td></tr>`).join('')}</tbody></table></div>`;
+
+  if(inc('pr-compound')) h += `<div class="pr-sec"><h2>🔤 ৪। যুক্তবর্ণ শিখি</h2>
+    <table class="pr-table"><thead><tr><th style="width:20%">যুক্তবর্ণ</th><th style="width:35%">বর্ণ বিশ্লেষণ</th><th style="width:45%">শব্দ</th></tr></thead>
+    <tbody>${COMPOUNDS.map(c => `<tr><td><strong style="font-size:14pt">${c.compound}</strong></td><td>${c.parts[0]} + ্ + ${c.parts[1]}</td><td><strong>${c.icon} ${c.word}</strong></td></tr>`).join('')}</tbody></table></div>`;
+
+  if(inc('pr-ex1')) h += `<div class="pr-sec"><h2>✍️ ৫। অনুশীলন ১ : শূন্যস্থান পূরণ</h2>
+    ${FILL_BLANKS.map((q,i) => `<div class="pr-q"><div style="font-weight:700">${toBn(i+1)}। ${q.prompt}</div><div class="pr-opts">🔘 বিকল্প: ${q.options.join('  /  ')}</div></div>`).join('')}</div>`;
+
+  if(inc('pr-ex2')) h += `<div class="pr-sec"><h2>✅ ৬। অনুশীলন ২ : সত্য নাকি মিথ্যা?</h2>
+    ${TRUE_FALSE.map((t,i) => `<div class="pr-q"><div style="font-weight:700">${toBn(i+1)}। "${t.text}"</div><div class="pr-tf">✔️ সত্য <span class="pr-box"></span> &nbsp;&nbsp;&nbsp; ✖️ মিথ্যা <span class="pr-box"></span></div></div>`).join('')}</div>`;
+
+  if(inc('pr-ex3')) h += `<div class="pr-sec"><h2>🔤 ৭। অনুশীলন ৩ : যুক্তবর্ণ মেলাও</h2>
+    ${COMPOUND_MATCH.map((q,i) => `<div class="pr-q"><div style="font-weight:700">${toBn(i+1)}। "${q.word}" — যুক্তবর্ণ কোনটি?</div><div class="pr-opts">${q.options.map(o => `${o} <span class="pr-box"></span>`).join('  &nbsp;&nbsp;  ')}</div></div>`).join('')}</div>`;
+
+  if(inc('pr-ex4')) h += `<div class="pr-sec"><h2>🚂 ৮। অনুশীলন ৪ : সাত দিন সাজাও</h2>
+    <p style="font-weight:600;margin:4px 0">নিচের দিনগুলো সঠিক ক্রমে লিখো:</p>
+    <div style="font-weight:700;font-size:11pt;padding:8px;border:1.5px dashed #64748b;border-radius:6px;text-align:center">
+      ${WEEK_DAYS.map(d => `<span style="display:inline-block;margin:2px 6px;padding:3px 8px;border:1px solid #cbd5e1;border-radius:5px;background:#f0f9ff">${d.bn}</span>`).join('')}
+    </div>
+    <div style="margin-top:8px;font-weight:700">উত্তর : ${Array.from({length:7}).map(() => `<span style="display:inline-block;min-width:80px;border-bottom:1.2px dotted #0f172a;margin:0 6px">&nbsp;</span>`).join('')}</div>
+  </div>`;
+
+  if(inc('pr-key')) h += `<div class="pr-sec pr-pagebreak"><h2>🗝️ উত্তরপত্র</h2>
+    <h3>✍️ অনুশীলন ১ :</h3><p class="pr-ans">${FILL_BLANKS.map((q,i) => `${toBn(i+1)}. ${q.correct}`).join(' &nbsp;|&nbsp; ')}</p>
+    <h3>✅ অনুশীলন ২ :</h3><p class="pr-ans">${TRUE_FALSE.map((t,i) => `${toBn(i+1)}. ${t.isTrue ? '✔️ সত্য' : '✖️ মিথ্যা'}`).join(' &nbsp;|&nbsp; ')}</p>
+    <h3>🔤 অনুশীলন ৩ :</h3><p class="pr-ans">${COMPOUND_MATCH.map((q,i) => `${toBn(i+1)}. ${q.correct}`).join(' &nbsp;|&nbsp; ')}</p>
+    <h3>🚂 অনুশীলন ৪ :</h3><p class="pr-ans">${ORDER_DAYS_CORRECT.join(' → ')}</p></div>`;
+
+  if(inc('pr-guide')) h += `<div class="pr-sec${inc('pr-key') ? '' : ' pr-pagebreak'}"><h2>🎓 শিক্ষক নির্দেশনা</h2>
+    <h3>📖 ১. পাঠ অনুধাবন (৮ মিনিট)</h3><ul class="pr-ol" style="margin-left:14px"><li>আজ কী বার জিজ্ঞেস করে শুরু করুন।</li></ul>
+    <h3>🎴 ২. শব্দ কার্ড (১০ মিনিট)</h3><ul class="pr-ol" style="margin-left:14px"><li>কার্ডে টাচ করিয়ে বারের নাম শোনান।</li></ul>
+    <h3>🎮 ৩. ট্রেন গেম (১০ মিনিট)</h3><ul class="pr-ol" style="margin-left:14px"><li>শিশুর নাম লিখে দিন — প্রশ্নে নাম ধরে ডাকবে।</li><li>প্রশ্ন ভয়েস চালু রেখে শুনে সঠিক বগি ধরতে বলুন।</li></ul>
+    <h3>✍️ ৪. অনুশীলনী (৭ মিনিট)</h3><ul class="pr-ol" style="margin-left:14px"><li>ডিজিটাল অনুশীলনী ১-৪ করান।</li></ul>
+    <h3>🏠 ৫. বাড়ির কাজ (৫ মিনিট)</h3><ul class="pr-ol" style="margin-left:14px"><li>শব্দ কার্ড প্রিন্ট দিয়ে ফ্ল্যাশ কার্ড বানাও।</li></ul></div>`;
+
+  if(inc('pr-eye')) h += `<div class="pr-sec"><h2>👀 চোখের সুরক্ষা — ২০-২০-২০ নিয়ম</h2>
+    <ul class="pr-ol" style="margin-left:14px"><li>প্রতি ২০ মিনিট পরপর ২০ ফুট দূরের বস্তুর দিকে ২০ সেকেন্ড তাকাও।</li><li>ডিভাইস চোখ থেকে ১.৫ – ২ ফুট দূরে রাখো।</li><li>অন্ধকারে বা শুধু স্ক্রিনের আলোতে পড়া যাবে না।</li></ul></div>`;
+
+  h += `<div class="pr-foot">
+    <div class="pr-emoji-line">🚂 📅 🎈 🚃 ✨</div>
+    📚 আমার বাংলা বই • প্রথম শ্রেণি • পাঠ ৫ : সাত দিনের কথা &nbsp;|&nbsp;
+    🎨 পরিকল্পনা ও ডিজাইনে : মো: সাইফুল্লাহ সরোয়ার ⭐
+  </div></div>`;
+
+  if(inc('pr-wc')){
+    const totalPages = Math.ceil(WEEK_DAYS.length / 6);
+    for(let page = 0; page < totalPages; page++){
+      const chunk = WEEK_DAYS.slice(page * 6, page * 6 + 6);
+      h += `<div class="pr-page pr-pagebreak">`;
+      if(page === 0){
+        h += `<div class="pr-head"><div class="pr-emoji-row">🚂 📅 🎴 🚃 ✨</div><div class="pr-kicker">📚 আমার বাংলা বই • প্রথম শ্রেণি • পাঠ ৫</div><h1>🎴 সাত দিনের শব্দ কার্ড (৬টি / পেজ)</h1><div class="pr-emoji-line">✂️ কেটে ফ্ল্যাশ কার্ড বানাও ✂️</div></div>`;
+      }
+      h += `<div class="wc-print-grid">`;
+      chunk.forEach(d => {
+        h += `<div class="wc-print-card">
+          <div class="wc-icon">${d.icon}</div>
+          <div class="wc-name">${d.bn}</div>
+          <div class="wc-en">${d.en}</div>
+          <div class="wc-cut">✂️ - - - - - - - - - - - - - - - - - - ✂️</div>
+        </div>`;
+      });
+      h += `</div>`;
+      h += `<div class="pr-foot">🎴 সাত দিনের শব্দ কার্ড (৬টি / A4) • পাঠ ৫ • মো: সাইফুল্লাহ সরোয়ার ⭐</div></div>`;
+    }
+  }
+  return h;
+}
+function generatePrint(){
+  const c = buildPrintHTML();
+  if(!c) return;
+  playSound('click');
+  closePrintModal();
+  stopAudio();
+  document.getElementById('printArea').innerHTML = c;
+  setTimeout(() => window.print(), 350);
+}
+window.onafterprint = function(){ document.getElementById('printArea').innerHTML = ''; };
+
+/* ═══════════ DOWNLOAD HTML ═══════════ */
+function downloadHTML(){
+  playSound('click'); stopAudio();
+  try{
+    document.getElementById('printArea').innerHTML = '';
+    const pm = document.getElementById('printModal'); if(pm){ pm.classList.add('hidden'); pm.classList.remove('flex'); }
+    const im = document.getElementById('installModal'); if(im){ im.classList.add('hidden'); im.classList.remove('flex'); }
+    const fullHTML = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+    const blob = new Blob([fullHTML], { type: 'text/html;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'পাঠ-৫-সাত-দিনের-কথা.html';
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(() => URL.revokeObjectURL(url), 500);
+    showToast('✅ ডাউনলোড সম্পন্ন!');
+  } catch(e){ console.error(e); alert('ডাউনলোড করা যায়নি।'); }
+}
+function showToast(msg){
+  const t = document.createElement('div');
+  t.style.cssText = `position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:linear-gradient(135deg,#10b981,#059669);color:#fff;padding:12px 22px;border-radius:14px;font-family:'Hind Siliguri',sans-serif;font-weight:700;font-size:14px;box-shadow:0 10px 30px rgba(0,0,0,.25);z-index:9999;opacity:0;transition:all .35s ease;pointer-events:none;max-width:90vw;text-align:center;`;
+  t.textContent = msg;
+  document.body.appendChild(t);
+  requestAnimationFrame(() => { t.style.opacity = '1'; t.style.transform = 'translateX(-50%) translateY(0)'; });
+  setTimeout(() => { t.style.opacity = '0'; t.style.transform = 'translateX(-50%) translateY(80px)'; setTimeout(() => t.remove(), 400); }, 3200);
+}
+
+/* ═══════════ PWA INSTALL ═══════════ */
+let deferredInstallPrompt = null;
+let isInstalled = false;
+if(window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) isInstalled = true;
+function isFileProtocol(){ return location.protocol === 'file:'; }
+function isSecureContextSafe(){ return location.protocol === 'https:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1'; }
+function createManifest(){
+  try{
+    const iconSvg = (size) => {
+      const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${size} ${size}"><rect width="${size}" height="${size}" fill="#0284c7" rx="${size*0.18}"/><text y="${size*0.72}" x="${size/2}" text-anchor="middle" font-size="${size*0.65}">🚂</text></svg>`;
+      return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+    };
+    const manifest = {
+      name: "সাত দিনের কথা — আমার বাংলা বই (পাঠ ৫)", short_name: "সাত দিনের কথা",
+      description: "১ম শ্রেণির বাংলা পাঠ ৫ — সাত দিনের কথা ইন্টারঅ্যাক্টিভ শিক্ষামূলক অ্যাপ",
+      start_url: ".", scope: ".", display: "standalone", orientation: "any",
+      background_color: "#e0f2fe", theme_color: "#0284c7", lang: "bn", dir: "ltr",
+      categories: ["education", "kids"],
+      icons: [
+        { src: iconSvg(192), sizes: "192x192", type: "image/svg+xml", purpose: "any" },
+        { src: iconSvg(192), sizes: "192x192", type: "image/svg+xml", purpose: "maskable" },
+        { src: iconSvg(512), sizes: "512x512", type: "image/svg+xml", purpose: "any" },
+        { src: iconSvg(512), sizes: "512x512", type: "image/svg+xml", purpose: "maskable" }
+      ]
+    };
+    const dataURI = 'data:application/manifest+json;charset=utf-8,' + encodeURIComponent(JSON.stringify(manifest));
+    let link = document.querySelector('link[rel="manifest"]');
+    if(!link){ link = document.createElement('link'); link.rel = 'manifest'; document.head.appendChild(link); }
+    link.href = dataURI;
+  } catch(e){}
+}
+async function registerServiceWorker(){
+  if(!('serviceWorker' in navigator)) return;
+  if(!isSecureContextSafe()) return;
+  const swCode = `self.addEventListener('install',e=>self.skipWaiting());self.addEventListener('activate',e=>e.waitUntil(self.clients.claim()));self.addEventListener('fetch',e=>e.respondWith(fetch(e.request).catch(()=>caches.match(e.request))));`;
+  try{
+    const blob = new Blob([swCode], { type:'application/javascript' });
+    const url = URL.createObjectURL(blob);
+    await navigator.serviceWorker.register(url, { scope: './' });
+  } catch(e){}
+}
+window.addEventListener('beforeinstallprompt', e => {
+  e.preventDefault();
+  deferredInstallPrompt = e;
+  const btn = document.getElementById('installBtn');
+  if(btn) btn.classList.add('install-pulse');
+});
+window.addEventListener('appinstalled', () => {
+  isInstalled = true; deferredInstallPrompt = null;
+  const btn = document.getElementById('installBtn');
+  const txt = document.getElementById('installBtnText');
+  if(btn){ btn.classList.remove('install-pulse'); btn.className = btn.className.replace(/from-pink-600|to-rose-600|hover:from-pink-500|hover:to-rose-500/g,''); btn.classList.add('bg-green-600','hover:bg-green-500'); }
+  if(txt) txt.innerText = 'ইনস্টল ✓';
+  showToast('🎉 অ্যাপটি সফলভাবে ইনস্টল হয়েছে!');
+});
+function handleInstallClick(){
+  playSound('click'); stopAudio();
+  if(isInstalled){ showToast('✅ অ্যাপটি ইতিমধ্যে ইনস্টল করা আছে!'); return; }
+  if(deferredInstallPrompt){ openInstallModal('native'); return; }
+  if(isFileProtocol()){ openInstallModal('file'); return; }
+  openInstallModal('manual');
+}
+function triggerNativeInstall(){
+  if(!deferredInstallPrompt){ showToast('⚠️ ইনস্টল প্রম্পট পাওয়া যাচ্ছে না।'); openInstallModal('manual'); return; }
+  deferredInstallPrompt.prompt();
+  deferredInstallPrompt.userChoice.then(c => { deferredInstallPrompt = null; closeInstallModal(); });
+}
+function detectPlatform(){
+  const ua = navigator.userAgent || '';
+  if(/android/i.test(ua)) return 'android';
+  if(/iPad|iPhone|iPod/.test(ua) && !window.MSStream) return 'ios';
+  if(/windows/i.test(ua)) return 'windows';
+  if(/mac/i.test(ua)) return 'mac';
+  if(/linux/i.test(ua)) return 'linux';
+  return 'desktop';
+}
+function buildInstallSteps(mode){
+  const p = detectPlatform();
+  const steps = [];
+  if(mode === 'file'){
+    steps.push({icon:'⚠️', title:'লোকাল ফাইলে Chrome ইনস্টল করে না', body:'আপনি HTML ফাইল সরাসরি খুলেছেন (<strong>file://</strong>)। Chrome নিরাপত্তার কারণে এই অবস্থায় Install প্রম্পট দেখায় না।'});
+    steps.push({icon:'⚡', title:'দ্রুত সমাধান : Netlify Drop', body:'<strong>app.netlify.com/drop</strong> খুলুন → HTML ফাইল ড্র্যাগ করুন → HTTPS লিংক Chrome-এ খুলুন → Install বাটন চাপুন।'});
+    steps.push({icon:'💡', title:'তাৎক্ষণিক ব্যবহারের উপায়', body:'<strong>ডাউনলোড</strong> বাটন দিয়ে ফাইল সেভ করে ব্রাউজারে ডাবল-ক্লিক করে চালান।'});
+    return steps;
+  }
+  if(mode === 'native'){
+    steps.push({icon:'✨', title:'আপনার ব্রাউজার সরাসরি ইনস্টল সাপোর্ট করছে', body:'উপরের সবুজ বাক্সে <strong>"এখনই ইনস্টল করুন"</strong> বাটনে ক্লিক করুন।'});
+    return steps;
+  }
+  if(p === 'android'){
+    steps.push({icon:'🌐', title:'Chrome (Android)', body:'উপরে-ডানে <strong>⋮</strong> → <strong>"Install app"</strong> → <strong>Install</strong>।'});
+  } else if(p === 'ios'){
+    steps.push({icon:'🧭', title:'Safari (iOS)', body:'নিচে <strong>Share □↑</strong> → <strong>"Add to Home Screen"</strong> → <strong>Add</strong>।'});
+  } else {
+    steps.push({icon:'💻', title:'Chrome (ডেস্কটপ)', body:'অ্যাড্রেস বারের ডানদিকে <strong>⊕ Install</strong> আইকন চাপুন।'});
+  }
+  if(!isSecureContextSafe()){
+    steps.push({icon:'🔒', title:'HTTPS প্রয়োজন', body:`বর্তমান প্রোটোকল: <strong>${location.protocol}</strong>`});
+  }
+  steps.push({icon:'✅', title:'ইনস্টল শেষে', body:'হোম স্ক্রিনে <strong>🚂 সাত দিনের কথা</strong> আইকন পাবেন।'});
+  return steps;
+}
+function openInstallModal(mode){
+  const nativeBox = document.getElementById('installNativeBox');
+  const header = document.getElementById('installHeaderMsg');
+  const stepsBox = document.getElementById('installSteps');
+  if(mode === 'native' && deferredInstallPrompt){ nativeBox.classList.remove('hidden'); header.innerText = '💡 অথবা নিচের ধাপগুলোও দেখুন:'; }
+  else {
+    nativeBox.classList.add('hidden');
+    if(mode === 'file') header.innerHTML = '⚠️ আপনি HTML ফাইল সরাসরি খুলেছেন (<strong>file://</strong>)। Chrome ইনস্টল প্রম্পট দেখায় না।';
+    else header.innerText = '💡 ব্রাউজার অনুযায়ী নিচের ধাপগুলো দেখুন:';
+  }
+  const steps = buildInstallSteps(mode);
+  stepsBox.innerHTML = steps.map(s => `<div class="flex gap-3 bg-slate-50 border-2 border-slate-200 rounded-2xl p-3"><div class="text-2xl shrink-0">${s.icon}</div><div class="space-y-0.5"><p class="font-black text-slate-900 text-sm">${s.title}</p><p class="text-xs text-slate-600 leading-relaxed">${s.body}</p></div></div>`).join('');
+  document.getElementById('installModal').classList.remove('hidden');
+  document.getElementById('installModal').classList.add('flex');
+}
+function closeInstallModal(){
+  document.getElementById('installModal').classList.add('hidden');
+  document.getElementById('installModal').classList.remove('flex');
+}
+createManifest();
+registerServiceWorker();
+
+/* ═══════════ POWERPOINT ═══════════ */
+function downloadPPT(){
+  if(typeof PptxGenJS === 'undefined'){ alert('লাইব্রেরি লোড হয়নি। ইন্টারনেট চেক করুন।'); return; }
+  const b = document.getElementById('pptBtnText');
+  const old = b.innerText;
+  b.innerText = '...';
+  playSound('click'); stopAudio();
+  setTimeout(() => {
+    try{ buildPPTX(); }
+    catch(e){ console.error(e); alert('PPT তৈরি করতে সমস্যা।'); }
+    finally{ b.innerText = old; }
+  }, 100);
+}
+function buildPPTX(){
+  const pptx = new PptxGenJS();
+  pptx.layout = 'LAYOUT_16x9';
+  const FONT = 'Nirmala UI';
+  const SKY='0284C7', AMBER='F59E0B', WHITE='FFFFFF', DARK='075985', TEXT='0F172A';
+  function hdr(s, t){
+    s.addShape('rect',{x:0,y:0,w:10,h:.85,fill:{color:SKY}});
+    s.addShape('rect',{x:0,y:.85,w:10,h:.06,fill:{color:AMBER}});
+    s.addText(t,{x:.45,y:0,w:9.1,h:.85,fontSize:22,bold:true,color:WHITE,fontFace:FONT,valign:'middle',align:'left'});
+  }
+  let s = pptx.addSlide();
+  s.background = { color:SKY };
+  s.addShape('rect',{x:0,y:0,w:10,h:.28,fill:{color:AMBER}});
+  s.addShape('rect',{x:0,y:5.34,w:10,h:.29,fill:{color:AMBER}});
+  s.addText('🚂 🚃 🚃 🚃 🚃 🚃 🚃 🚃',{x:0,y:.35,w:10,h:.5,fontSize:20,align:'center'});
+  s.addText('📚 আমার বাংলা বই — প্রথম শ্রেণি',{x:0,y:2.3,w:10,h:.5,fontSize:18,bold:true,color:'BAE6FD',align:'center',fontFace:FONT});
+  s.addText('পাঠ ৫ : সাত দিনের কথা 📅',{x:0,y:2.9,w:10,h:.9,fontSize:34,bold:true,color:'FDE68A',align:'center',fontFace:FONT});
+  s.addText('🎨 মো: সাইফুল্লাহ সরোয়ার ⭐',{x:0,y:4.45,w:10,h:.5,fontSize:14,bold:true,color:'FDE68A',align:'center',fontFace:FONT});
+
+  s = pptx.addSlide(); s.background = { color:'F8FAFC' };
+  hdr(s, '📅 সাত দিনের নাম');
+  const rows = [['ক্রম','বাংলা','ইংরেজি'].map(t => ({text:t,options:{bold:true,color:WHITE,fill:{color:SKY},align:'center'}}))];
+  WEEK_DAYS.forEach((d,i) => rows.push([
+    {text:toBn(i+1), options:{bold:true,color:DARK,align:'center'}},
+    {text:`${d.icon} ${d.bn}`, options:{bold:true,color:DARK}},
+    {text:d.en, options:{color:TEXT}}
+  ]));
+  s.addTable(rows,{x:.7,y:1.2,w:8.6,colW:[1.2,4.4,3],fontFace:FONT,fontSize:14,border:{pt:1,color:'BAE6FD'},rowH:.5});
+
+  s = pptx.addSlide(); s.background = { color:'F8FAFC' };
+  hdr(s, '🔤 যুক্তবর্ণ');
+  s.addText(COMPOUNDS.map(c => ({text:`${c.icon}  ${c.parts[0]} + ্ + ${c.parts[1]} = ${c.compound} → ${c.word}`, options:{breakLine:true}})),
+    {x:.6,y:1.3,w:8.8,h:3.8,fontSize:18,fontFace:FONT,color:TEXT,bold:true,lineSpacing:34});
+
+  s = pptx.addSlide(); s.background = { color:SKY };
+  s.addShape('rect',{x:0,y:0,w:10,h:.28,fill:{color:AMBER}});
+  s.addShape('rect',{x:0,y:5.34,w:10,h:.29,fill:{color:AMBER}});
+  s.addText('ধন্যবাদ 🚂',{x:0,y:1.7,w:10,h:.9,fontSize:38,bold:true,color:'FDE68A',align:'center',fontFace:FONT});
+  s.addText('🎨 মো: সাইফুল্লাহ সরোয়ার ⭐',{x:0,y:4.2,w:10,h:.5,fontSize:15,bold:true,color:'FDE68A',align:'center',fontFace:FONT});
+
+  pptx.writeFile({ fileName: 'পাঠ-৫-সাত-দিনের-কথা.pptx' }).catch(err => { console.error(err); alert('ফাইল সেভ করা যায়নি।'); });
+}
+
+/* ═══════════ INIT ═══════════ */
+window.addEventListener('load', () => {
+  renderPassage();
+  renderWordExplorer();
+  renderMiniTrain();
+  renderTrainCoaches();
+  renderCompounds();
+  renderExercises();
+  renderWordCards();
+  updateHeaderGreeting();
+
+  // Prefill name input
+  const inp = document.getElementById('childNameInput');
+  if(inp) inp.value = childName;
+  const qv = document.getElementById('questionVoiceToggle');
+  if(qv) qv.checked = questionVoiceEnabled;
+
+  if('speechSynthesis' in window){
+    window.speechSynthesis.onvoiceschanged = () => { window.speechSynthesis.getVoices(); };
+  }
+  if(isInstalled){
+    const btn = document.getElementById('installBtn');
+    const txt = document.getElementById('installBtnText');
+    if(btn){ btn.classList.remove('install-pulse'); btn.classList.add('bg-green-600','hover:bg-green-500'); }
+    if(txt) txt.innerText = 'ইনস্টল ✓';
+  }
+});
+</script>
+</body>
+</html>
